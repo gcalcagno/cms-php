@@ -1,0 +1,319 @@
+// ==========================================================================
+/* PAGINAS -*/
+// ==========================================================================
+
+/* TITULOS */
+.titulo-multiple
+	width 100%
+	display inline-block
+	border-bottom 1px solid gris7
+	margin-bottom 10px
+	
+	h3
+		color #fff
+		height 30px
+		font-size 16px
+		text-align center
+		padding 5px
+	
+	.subtitulo-a
+		width auto
+		float left
+		
+	.subtitulo-b
+		width auto
+		margin-left 5px
+		float left
+
+		
+/* SUBTITULOS */
+.subtitulo
+	width 100%
+	height 25px
+	margin-bottom 10px
+	
+	h3
+		display inline
+		color white
+		height 30px
+		font-size 16px
+		text-align center
+		padding 5px
+		
+.titulo-naranja
+	border-bottom solid 1px naranja
+	
+	h3
+		background-color naranja
+			
+.titulo-gris
+	border-bottom solid 1px gris7
+	
+	h3
+		background-color gris7
+
+.titulo-azul-seguinos
+	border-bottom solid 1px azul-seguinos
+	
+	h3
+		background-color azul-seguinos
+
+		
+//GUIA ----------------------------
+.guia
+	width 100%
+	height 20px
+	margin 15px 0
+	
+	.item
+		color gris3
+		float left
+		font-size 10px
+		margin-right 3px
+		
+		.glyphicon
+			font-size 6px
+			position relative
+			top 0
+	
+	.activo
+		color black
+		font-weight bold
+		
+		span
+			display none
+
+//GUIA ----------------------------
+.guia
+	width 100%
+	height 20px
+	margin 15px 0
+	
+	.item
+		color gris3
+		float left
+		font-size 10px
+		margin-right 3px
+		
+		.glyphicon
+			font-size 6px
+			position relative
+			top 0
+	
+	.activo
+		color black
+		font-weight bold
+		
+		span
+			display none
+			
+
+/*BLOQUES-------------------------------------------*/
+.bloque
+	width 100%
+	float left
+	margin-bottom 30px
+	
+
+/*BLOQUE Destacado*/
+.bloque-destacado
+		
+	.imagen
+		float left
+		
+		img
+			width 100%
+					
+	.texto
+		float left
+		padding-left 10px
+		
+		h6
+			margin 0
+			font-family Arvo-Bold
+			font-size 10px
+		
+		h4
+			margin 5px 0
+			line-height 25px
+		
+		p
+			text-align justify
+			margin-bottom 10px
+		
+		.boton
+			float left
+
+/*BLOQUE Novedades*/		
+.bloque-novedades
+				
+	.bloque-a
+		padding-right 10px
+		border-right 1px solid rgba(0, 0, 0, .2)
+		
+		.imagen
+			width 100%
+			float left
+			margin-bottom 10px
+			
+			img
+				width 100%
+			
+		.texto
+			width 100%
+			float left
+			
+			h6
+				margin 0
+				font-family Arvo-Bold
+				font-size 10px
+			
+			h4
+				margin 5px 0
+				line-height 25px
+			
+			p
+				text-align justify
+				margin-bottom 10px
+	.bloque-b
+		padding-left 10px
+		
+		img
+			width 100%
+
+.widget		
+	.item
+		border-bottom 1px solid rgba(0, 0, 0, .2)
+		padding-bottom 10px
+		margin-bottom 10px
+		
+		.imagen
+			width 30%
+			float left
+			padding-right 5px
+			
+			img
+				width 100%
+			
+		.texto
+			width 70%
+			float left
+			padding-left 5px
+			
+			h6
+				margin 0
+				font-family Arvo-Bold
+				font-size 10px
+			
+			h4
+				text-align justify
+				margin-bottom 10px
+				font-size 12px
+					
+/*BLOQUE Posteos*/
+.bloque-posteos-relacionados
+	.posteos
+		
+		.widget	
+			width 100%
+			float left
+				
+			.item
+				width 50%
+				float left
+				border-bottom none
+			
+		.item
+			padding 10px
+			
+			.imagen
+				width 100%
+				float left
+				margin-bottom 10px
+				
+				img
+					width 100%
+							
+			.texto
+				width 100%
+				float left
+				
+				h6
+					margin 0
+					font-family Arvo-Bold
+					font-size 10px
+				
+				h4
+					margin 5px 0
+					line-height 25px
+				
+				p
+					text-align justify
+					margin-bottom 10px
+				
+				.boton
+					float left
+					
+
+
+
+
+// ==========================================================================
+/* RESPONSIVE - DEFAULT */
+// ==========================================================================
+
+/*mobile--------------------------------------------------*/
+@media screen and (min-width: 0px) and (max-width : 767px){
+	.bloque-destacado .texto {
+	    padding-left: 0px !important;
+	    margin-bottom: 20px;
+	}
+	.bloque-destacado .imagen img {
+	    margin-bottom: 10px;
+	}
+
+}
+
+/**  MOBILE DISPOSITIVO **/
+@media device and (min-width: 0px) and (max-width : 767px){
+	
+}
+
+/*tablet----------------------------------------*/
+@media screen and (min-width: 768px) and (max-width : 1280px){
+
+}
+
+/**  TABLETS LANDSCAPE **/
+@media screen and (min-width: 771px) and (max-width : 900px){
+
+	.subtitulo-doble .subtitulo-a {
+		width: 50%;
+		margin-right: 0;
+	}
+	
+	.subtitulo-doble .subtitulo-b {
+		width: 50%;
+		margin-right: 0;
+	}
+	
+	.subtitulo-doble h3 {
+		font-size: 9px;
+	}
+
+}
+
+/*notbook------------------------------------*/
+@media screen and (min-width: 1280px) and (max-width : 1800px){
+	
+}
+
+/*desktop------------------------------*/
+@media screen and (min-width: 1801px) and (max-width : 2200px){
+
+}
+
+/*desktop large-----------------------------------------------*/
+@media screen and (min-width: 2220px) and (max-width : 4000px){
+
+}

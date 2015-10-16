@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Sobre escribir URLs numericas
+RewriteRule ^index/$ index.php 
+
+RewriteRule ^index2/(\w*)/?$ index.php?id=$1

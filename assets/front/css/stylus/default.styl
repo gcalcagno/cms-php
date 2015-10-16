@@ -1,0 +1,191 @@
+// ==========================================================================
+/* DEFAULT -*/
+// ==========================================================================
+
+@import "nib"
+@import "normalize"
+vendor-prefixes = webkit o ms moz official
+
+/*variables - COLOR */
+marron=#a56d35
+naranja=#f2540c
+verde=#00ad6a
+rosa=#ff4274
+celeste=#10a89e
+form-azul=#434858
+rosa-tienda=#ae3f6c
+azul-seguinos=#3f59ab
+//grises
+gris1=#e1e1e1
+gris2=#c1bfbf
+gris3=#727171
+gris4=#787e8e
+gris5=#485169
+gris6=#454b5b
+gris7=#2c3242
+gris8=#2a2a2a
+form9=#1f1f1f
+gris10=#161616
+
+/*tipografias*/
+fuente-fina =  'Arvo-Regular', Arial, Helvetica, sans-serif
+fuente-bold =  'Arvo-Bold', Arial, Helvetica, sans-serif
+
+@font-face 
+  font-family 'Arvo-Regular'
+  src url('../fonts/Arvo-Regular.ttf')
+
+@font-face 
+  font-family 'Arvo-Bold'
+  src url('../fonts/Arvo-Bold.ttf')
+ 
+h1,h2,h3,h4,h5,p
+	margin 0
+	padding 0
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, 
+.col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, 
+.col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, 
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, 
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
+  	padding-left 0px
+  	padding-right 0px
+
+body
+	/*scroll explorer*/
+	scrollbar-base-color: #C1BFBF;
+	scrollbar-3dlight-color: #C1BFBF;
+	scrollbar-highlight-color: #C1BFBF; 
+	scrollbar-track-color: #D6D6D6;
+	scrollbar-arrow-color: #C1BFBF;
+	scrollbar-shadow-color: #C1BFBF;
+	scrollbar-dark-shadow-color: #C1BFBF;
+	color gris
+	font-family fuente-fina
+	
+/* barra de scroll navegador */
+::-webkit-scrollbar /*fondo*/
+	width 5px
+	background-color rgba(0, 0, 0, 0.5)
+	margin-top: 100px
+	/**sombra**/
+	box-shadow inset 0px 0px 9px 2px rgba(0,0,0,0.61)
+
+::-webkit-scrollbar-thumb/*barra*/
+	border-radius 10px
+	background-color gris2
+
+.navbar-collapse 
+	border-top none !important
+	box-shadow none !important
+
+:focus
+	outline 0px
+
+li, ul
+	list-style none
+	margin 0
+	padding 0
+
+p
+	color #666
+		
+hr
+	border-bottom 1px solid gris1
+	margin 15px 0
+	padding 0
+	width 100%
+	line-height 1
+		
+
+/* BOTONES */		
+.boton
+	border-radius 5px
+	display inline
+	padding 5px
+	color white
+
+
+/* BACKGROUND */				
+.b-naranja
+	background-color naranja
+	
+.b-gris4
+	background-color gris4
+	
+.b-gris7
+	background-color gris7
+
+
+/* COLOR DE TEXTO */
+.text-naranja
+	color naranja !important
+	
+.text-celeste
+	color celeste !important
+	
+.text-verde
+	color verde !important
+	
+.text-marron
+	color marron !important
+	
+.text-rosa
+	color rosa !important
+
+
+
+// ==========================================================================
+/* RESPONSIVE - DEFAULT */
+// ==========================================================================
+
+/*mobile--------------------------------------------------*/
+@media screen and (min-width: 0px) and (max-width : 767px){
+
+
+}
+
+/**  MOBILE DISPOSITIVO **/
+@media device and (min-width: 0px) and (max-width : 767px){
+	
+}
+
+/*tablet----------------------------------------*/
+@media screen and (min-width: 768px) and (max-width : 1280px){
+
+}
+
+/**  TABLETS LANDSCAPE **/
+@media screen and (min-width: 771px) and (max-width : 900px){
+
+	.subtitulo-doble .subtitulo-a {
+		width: 50%;
+		margin-right: 0;
+	}
+	
+	.subtitulo-doble .subtitulo-b {
+		width: 50%;
+		margin-right: 0;
+	}
+	
+	.subtitulo-doble h3 {
+		font-size: 9px;
+	}
+
+}
+
+/*notbook------------------------------------*/
+@media screen and (min-width: 1280px) and (max-width : 1800px){
+	
+}
+
+/*desktop------------------------------*/
+@media screen and (min-width: 1801px) and (max-width : 2200px){
+
+}
+
+/*desktop large-----------------------------------------------*/
+@media screen and (min-width: 2220px) and (max-width : 4000px){
+
+}
