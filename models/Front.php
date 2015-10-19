@@ -106,6 +106,10 @@ class Front
         return $resultado;
 
         $resultado->close();
+
+        //Llamada a la vista
+        require_once("categoria.php");
+
     }
 
 

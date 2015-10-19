@@ -3,8 +3,7 @@
 
 <?php startblock('contenido') ?> 
 
-
-	<!--*** ARTICULOS RELACIONADOS ***-->
+<!--*** ARTICULOS RELACIONADOS ***-->
 	<div class="bloque-posteos-relacionados bloque">
 		<div class="subtitulo titulo-naranja"> 
 			<h3>Categorias</h3>
@@ -32,4 +31,4 @@
 	</div>
 	<!--*** //ARTICULOS RELACIONADOS ***-->
 
-<?php endblock() ?> 
+	<?php endblock() ?> 

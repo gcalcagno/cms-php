@@ -34,7 +34,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3><i class="fa fa-flag-o red"></i><strong>Noticias</strong>
-							<a href="carga.php">
+							<a href="admin-noticia-carga">
 							<button type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Agregar noticia</button>
 							</a></h3>
 						</div>

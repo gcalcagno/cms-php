@@ -43,7 +43,7 @@
 			            <div class="subtitulo titulo-gris"> 
 			                <h3>Login</h3>
 			            </div>
-			            <form role="form" class="form" action="index.php" method="post">
+			            <form role="form" class="form" action="" method="post">
 						  	<div class="form-group">
 						    	<label>Usuario</label>
 						    	<input name="admin" type="text" class="form-control" required >
@@ -54,7 +54,7 @@
 						 	</div>
 						 	<button name="iniciar" type="submit" class="btn enviar">Enviar</button>
 						</form>
-						<a href="registro.php" >Registrarme</a>
+						<a href="registro" >Registrarme</a>
 			        </div>
 		        <?php
 					}

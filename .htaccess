@@ -1,0 +1,16 @@
+RewriteEngine On
+
+#sobre escribir URL numericas
+
+RewriteRule ^home/?$ index.php
+RewriteRule ^noticias/?$ index.php
+RewriteRule ^categorias/?$ index.php
+RewriteRule ^registro/?$ index.php
+RewriteRule ^logout/?$ index.php
+
+RewriteRule ^admin/?$ index.php
+RewriteRule ^admin-dashboard/?$ index.php
+RewriteRule ^admin-noticia/?$ index.php
+RewriteRule ^admin-categoria/?$ index.php
+RewriteRule ^admin-categoria-carga/?$ index.php
+RewriteRule ^admin-noticia-carga/?$ index.php

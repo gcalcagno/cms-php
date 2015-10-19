@@ -25,12 +25,12 @@
 
                 <ul class="nav navbar-nav">
                     <li class="text-uppercase">
-                      <a href="index.php">
+                      <a href="noticias">
                           noticias
                       </a>
                   </li>
                     <li class="text-uppercase">
-                      <a href="categoria.php">
+                      <a href="categorias">
                           categorias
                       </a>
                     </li>

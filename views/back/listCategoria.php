@@ -34,7 +34,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3><i class="fa fa-flag-o red"></i><strong>Categorias</strong>
-							<a href="#">
+							<a href="admin-categoria-carga">
 							<button type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Agregar categoria</button>
 							</a></h3>
 						</div>

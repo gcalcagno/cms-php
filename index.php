@@ -1,52 +1,76 @@
-<?php include 'views/front/layout.php' ?> 
 
 
-<?php startblock('contenido') ?> 
+	<?php 
+
+		//carga todas las clases
+   		require_once "config/core.php";
+	
+		//detecta url
+		$uri = $_SERVER['REQUEST_URI'];
+		$parte=explode ('/',$uri);
+		$i= $parte[3];
+		//echo $i;
+
+		$BackController= new BackController;
+		$FrontController= new FrontController;
 
 
-	<!--*** ARTICULOS RELACIONADOS ***-->
-	<div class="bloque-posteos-relacionados bloque">
-		<div class="subtitulo titulo-naranja"> 
-			<h3>Noticias Generales</h3>
-		</div>
-		<!--Bloque posteos-->
-		<div class="posteos">
+		switch($i)
+		{
+			case "":
+			$FrontController->home();
+			break;
 
-			<?php
-				//instancia clases
-				$front = new Front();
-				$general = new General();
+			case "home":
+			$FrontController->home();
+			break;
+			
+			case "noticias":
+			$FrontController->home();
+			break;
 
-				//listado de post
-				$resultado = $front->listadoNoticia();
-	  			while($row = $resultado->fetch_assoc()){
-	  			//imagenNoticia
-	  			$portada = $front->imagenPortadaNoticia($row['id']);
-	  			//categoriaNoticia
-	  			$categoria = $front->categoriaNoticia($row['id']);
-	           	?>
-	           		<!--item post-->
-					<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
-						<div class="imagen">
-							<img src="uploads/<?php echo $portada; ?>">
-						</div>
-						<div class="texto">
-							<h6 class="text-uppercase text-naranja"><?php 
-						        foreach($categoria as $valor){
-									echo $valor. ' ';
-								}
-							 ?></h6>
-							<h4><?php $general->limitarTextos($row['titulo'], 50); ?></h4>
-							<p><?php $general->limitarTextos($row['texto'], 150); ?></p>
-						</div>
-					</div>
-					<!-- item post-->
-			<?php
-	        	}
-        	?>
-		</div>
-		<!--//Bloque posteos-->
-	</div>
-	<!--*** //ARTICULOS RELACIONADOS ***-->
+			case "categorias":
+			$FrontController->listadoCategoria();
+			break;
 
-<?php endblock() ?> 
+			case "registro":
+			$FrontController->registro();
+			break;
+
+			case "logout":
+			$BackController->logout();
+			break;
+
+			case "admin":
+			$BackController->login();
+			break;
+
+			case "admin-dashboard":
+			$BackController->dashboard();
+			break;
+
+			case "admin-noticia":
+			$BackController->listNoticia();
+			break;
+
+			case "admin-categoria":
+			$BackController->listCategoria();
+			break;
+
+			case "admin-noticia-carga":
+			$BackController->cargaNoticia();
+			break;
+
+			case "admin-categoria-carga":
+			$BackController->cargaCategoria();
+			break;
+			
+		
+			//default, evita error 404, y si ingresa alguna otra url
+			default:
+				echo "error";
+			}
+
+	?>
+
+

@@ -19,7 +19,7 @@
             <div class="subtitulo titulo-gris"> 
                 <h3>Login</h3>
             </div>
-            <form role="form" class="form" action="index.php" method="post">
+            <form role="form" class="form" action="" method="post">
 			  	<div class="form-group">
 			    	<label>Usuario</label>
 			    	<input name="admin" type="text" class="form-control" required >
@@ -35,7 +35,7 @@
     <?php
 		}
 	?>
-		        <!-- END // LOGIN -->
+	<!-- END // LOGIN -->
 	
 
 <?php endblock() ?> 

@@ -6,5 +6,5 @@
  //Destruir Sesión
  session_destroy();
  //Redireccionar a login.php
- header("location: index.php");
+ header("location: home");
 ?>

@@ -85,7 +85,7 @@ class Back
                 //almacena datos de usuario en una sesión
                 session_start();  
                 $_SESSION['usuario'] = $usuario;  
-                header("Location: index-admin.php");  
+                header("Location: admin-dashboard");  
                 echo 'usuario logueado';
             }else{
                 echo "Contraseña Incorrecta";    

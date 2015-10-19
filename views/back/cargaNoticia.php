@@ -1,7 +1,6 @@
 <?php
 	//crea la sesion
 	session_start();
-
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
 	{
@@ -28,7 +27,7 @@
 							<h3><i class="fa fa-flag-o red"></i><strong>   Cargar Noticia</strong></h3>
 						</div>
 
-						<form enctype="multipart/form-data" role="form" action="carga.php" method="POST" >
+						<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						  <div class="form-group">
 						    <label for="email">Titulo</label>
 						    <input type="text" class="form-control" name="titulo">
@@ -52,7 +51,6 @@
 							<?php $front = new Front();
 							//listado de categorias
 							$resultado = $front->listadoCategoria();
-
 							while($row = $resultado->fetch_assoc()){
 						    ?>
 						    <label for="email"><?php echo $row['nombre']; ?></label>
@@ -85,7 +83,6 @@
 			$fecha = date("Y-m-d"); 
 			$categoria = $_POST["categoria"]; 
 			print_r($_POST);
-
 			$target_path = "uploads/";
 			$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 			if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
@@ -93,9 +90,7 @@
 			} else{
 				echo "Ha ocurrido un error, trate de nuevo!";
 			}
-
 			$imagen =  $_FILES['uploadedfile']['name'];
-
 			//Llamamos al metodo para insertar los datos
 			$back = new Back();
 			$back->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);

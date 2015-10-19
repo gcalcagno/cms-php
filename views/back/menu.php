@@ -34,22 +34,22 @@
                     </li>
 
                     <li class="text-uppercase">
-                      <a href="index-admin.php">
+                      <a href="admin-dashboard">
                           dashboard
                       </a>
                     </li>
                     <li class="text-uppercase">
-                      <a href="noticia-admin.php">
+                      <a href="admin-noticia">
                           Noticias
                       </a>
                     </li>
                     <li class="text-uppercase">
-                      <a href="categoria-admin.php">
+                      <a href="admin-categoria">
                           Categoria
                       </a>
                     </li>
                     <li class="text-uppercase">
-                      <a href="logout.php" class="logout">
+                      <a href="logout" class="logout">
                           logout
                       </a>
                     </li>
