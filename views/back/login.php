@@ -1,4 +1,4 @@
-<?php include 'views/back/layout.php' ?> 
+<?php include 'views/back/layout-login.php' ?> 
 
 
 <?php startblock('contenido') ?> 
@@ -17,20 +17,20 @@
 
         <div class="form-admin">
             <div class="subtitulo titulo-gris"> 
-                <h3>Login</h3>
+                <span class="icon glyphicon glyphicon-lock"></span>
+                <hr>
             </div>
             <form role="form" class="form" action="" method="post">
 			  	<div class="form-group">
-			    	<label>Usuario</label>
+			    	<label class="text-uppercase">Usuario</label>
 			    	<input name="admin" type="text" class="form-control" required >
 			  	</div>
 			  	<div class="form-group">
-			    	<label>Password</label>
+			    	<label class="text-uppercase">Contraseña</label>
 			   		<input name="password_usuario" type="password" class="form-control" required >
 			 	</div>
-			 	<button name="iniciar" type="submit" class="btn enviar">Enviar</button>
+			 	<button name="iniciar" type="submit" class="text-uppercase btn ">Ingresar</button>
 			</form>
-			<a href="registro-admin.php" >Registrarme</a>
         </div>
     <?php
 		}

@@ -136,4 +136,22 @@ class Back
         $resultado->close();
    
     }
+
+
+
+    /*************
+    ** Count **
+    *************/
+    public function count($tabla)
+    {
+
+        $db = new Database();
+        $mysqli = $db->connect();
+
+        $resultado=$mysqli->query("SELECT COUNT(*) FROM $tabla");
+        
+        $row = $resultado->fetch_row();
+        return $row[0];
+   
+    }
 }

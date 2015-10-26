@@ -2,6 +2,14 @@
 /* PAGINAS -*/
 // ==========================================================================
 
+
+.subtitulo-default
+	background-color #222
+	color #fff
+	padding 5px
+	font-size 16px
+	margin-bottom 5px
+	
 /* TITULOS */
 .titulo-multiple
 	width 100%
@@ -51,6 +59,13 @@
 	
 	h3
 		background-color gris7
+		
+.titulo-negro
+	border-bottom solid 1px #222
+	
+	h3
+		background-color #222
+
 
 .titulo-azul-seguinos
 	border-bottom solid 1px azul-seguinos
@@ -191,9 +206,9 @@
 			width 30%
 			float left
 			padding-right 5px
-			
-			img
-				width 100%
+			height 50px
+			background-size cover
+			background-position center
 			
 		.texto
 			width 70%
@@ -213,6 +228,8 @@
 /*BLOQUE Posteos*/
 .bloque-posteos-relacionados
 	.posteos
+		width 102%
+		margin-left -1%
 		
 		.widget	
 			width 100%
@@ -224,19 +241,21 @@
 				border-bottom none
 			
 		.item
-			padding 10px
+			padding 1%
 			
 			.imagen
 				width 100%
 				float left
 				margin-bottom 10px
-				
-				img
-					width 100%
+				height 150px
+				background-size cover
+				background-position center
 							
 			.texto
 				width 100%
 				float left
+				max-height 150px
+				overflow hidden
 				
 				h6
 					margin 0

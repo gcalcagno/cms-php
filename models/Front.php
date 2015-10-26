@@ -112,5 +112,60 @@ class Front
 
     }
 
+    /********** 
+    ** Login **
+    **********/
+    public function login($usuario, $password)
+    {
+        //clase Database utiliza el método connect() para conectarse a la base de datos
+        $db = new Database();
+        $mysqli = $db->connect();
+
+        //consulta
+        $resultado=$mysqli->query("SELECT * FROM usuarios WHERE email = '$usuario'");
+
+
+        //valida usuario
+        if($row = $resultado->fetch_assoc()){
+            //valida password
+            if($row["password"] == $password){
+                //almacena datos de usuario en una sesión
+                session_start();  
+                $_SESSION['usuario'] = $usuario;  
+                header("Location: home");  
+                echo 'usuario logueado';
+            }else{
+                echo "Contraseña Incorrecta";    
+            }
+        }else{
+            echo "El nombre de usuario es incorrecto!";          
+        }
+
+       return $resultado;
+
+        $resultado->close();
+   
+    }
+
+
+    public function articulosRecientes()
+    {
+        //clase Database utiliza el método connect() para conectarse a la base de datos
+        $db = new Database();
+        $mysqli = $db->connect();
+
+        //consulta
+        $resultado=$mysqli->query("SELECT * FROM noticia LIMIT 4");
+        if(!$resultado){
+            die('Hubo un error en la consulta [' . $db->error . ']');
+        }
+
+        return $resultado;
+
+        $resultado->close();
+
+   
+    }
+
 
 }

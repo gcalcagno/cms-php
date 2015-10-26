@@ -1,6 +1,7 @@
  <?php
       //carga todas las clases
       require_once "config/core.php";
+      session_start();
 ?>
 
 <!DOCTYPE html>

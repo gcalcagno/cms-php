@@ -1,26 +1,57 @@
 // ==========================================================================
-/******** HOME ********/
+/******** FORMS ********/
 // ==========================================================================
-.contenido
-//estilos en layout
-	
-	.bloque-home
-		width 100%
-		float left
-		margin-bottom 30px
-		
-.header
-	height 100px
-	background-color #d1d1d1
-	
-	h1
-		text-align center
-		margin-top 30px
-	
 
+			
+.login
+	background-image url('../images/background-login.jpg')
+	background-size  cover
+	background-position center center
+	background-repeat no-repeat
+	width 100%
+	height 100%
+	min-height 100vh
+	float left
 	
+	.form-admin
+		background-color rgba(255,141,24,.8)
+		padding 20px
+		text-align center
+		width 300px
+		display table
+		margin 0 auto
+		margin-top 40px
+		position fixed
+		top 50%
+		left 50%
+		margin-left -150px
+		margin-top -150px
+		border-radius 10px
+		
+		hr
+			border-top 1px #fff dashed
+			float left
+			
+		
+		.icon
+			font-size 60px
+			color #fff
+			
+		form
+			margin-top 30px
+			
+			label
+				color #fff
+			
+			.btn
+				background-color #fff
+				width 70%
+				margin 0 auto
+				font-weight bold
+
+
 // ==========================================================================
-/* RESPONSIVE - HOME */
+/* RESPONSIVE - LAYOUT */
 // ==========================================================================
 
 /*mobile--------------------------------------------------*/
@@ -35,13 +66,12 @@
 
 /*tablet----------------------------------------*/
 @media screen and (min-width: 768px) and (max-width : 1280px){
-
+	
 }
 
 /**  TABLETS LANDSCAPE **/
-@media screen and (min-width: 771px) and (max-width : 900px){
-
-
+@media screen and (min-width: 700px) and (max-width : 900px){
+	
 }
 
 /*notbook------------------------------------*/
@@ -57,4 +87,8 @@
 /*desktop large-----------------------------------------------*/
 @media screen and (min-width: 2220px) and (max-width : 4000px){
 
+}
+
+@media (min-width: 992px ) {
+   
 }

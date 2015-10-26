@@ -7,277 +7,54 @@
 	float left
 	width 80%
 	margin 0 10%
-	padding 0 30px
 	
 	.contenido
 		float left
-		padding 15px 40px 15px 17px
 		
-	.sidebar
-		float right
-		padding 30px 0
-		
-		.share
-			
-			.item
-				padding 5px
-				width 30%
-				margin 1%
-				border-radius 5px
-				float left
-				
-				p
-					color white
-					text-align center
-					font-size 8px
-					margin-top 5px 0 3px 0
-					
-				img
-					width 66%
-					margin 0 16%
-
-			.facebook
-				background-color azul-seguinos
-			
-			.dona
-				background-color naranja
-			
-			.tienda
-				background-color rosa-tienda
-		
-		.plugin-facebook
-			margin-top 20px
-			float left
-			width 100%
-			
-			h3
-				font-size 14px
-				padding 6px
-				
-		.frase
-			margin-top 20px
-			float left
-			
-			.subtitulo
-				margin-bottom 5px
-			
-			h3
-				font-size 14px
-				padding 6px
-				
-			.item
-				background-color gris1
-				padding 15px
-				position relative
-				
-				.comillas
-					position absolute
-					width 30px
-				
-				.texto
-					width 100%
-					padding-left 35px
-					color gris4
-					font-style oblique
-				
-				.autor
-					position relative
-					left 0
-					bottom	0
-					margin-top 20px
-					font-size 14px
-					font-family Arvo-Bold
-					color gris4
-					
-				.comilla-a
-					top 5px
-					left 5px
-					
-				.comilla-b
-					bottom 5px
-					right 5px
-			
-		.articulos
-			margin-top 20px
-			float left	
-			
-			.titulo-multiple
-				width 100%
-				border-bottom 1px solid gris7
-				margin-bottom 10px
-				
-				h3
-					color white
-					font-size 11px
-					text-align center
-					padding 5px
-					font-family Arvo-Bold
-				
-				.subtitulo-a
-					width 45%
-					float left
-					background-color gris7
-					
-				.subtitulo-b
-					width 45%
-					margin-left 5px
-					float left
-					background-color gris4
-			
-
-//SLIDER HOME ----------------------------
-.slider-home
-	background-color gris1
-	height 250px
 	
-
-	
-//HEAD----------------------------
-.head
-	
-	.menu
-		background-color gris7
-		margin-bottom 0px	
-		border-radius 0
+	.title-page
+		color: #fff
+		background-color #444444
+		border-color #666
+		padding: 20px 15px
+		border-radius 4px
+		margin-bottom 5px
 		
-		:focus
-			background-color transparent
-
-		.contenedor
-			width 80% 
-			margin 0 10%
-			
-			.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before
-				display none !important
-
-			.buscar
-				width 20%
-				float right
-				position relative
-				
-				.glyphicon
-					position absolute
-					color gris2
-					right 8px
-					top 17px
-				
-				input 
-					width 100%
-					background-color gris8
-					border none
-					padding 5px
-					margin 10px 0 0 0
-					border-radius 2px
-					color gris2
-					height 28px
-			
-			.nav>li>a:focus
-				text-decoration none
-				background-color rgba(0, 0, 0, .0)
-
-			.navbar-collapse
-				width 80%
-			
-			a
+		h3
+			.icon-title
 				color #fff
-				font-size 10px
-				position relative
-				display block
-				padding 10px 15px
-			
-			.bienvenido
-				position relative
-				display block
-				padding 10px 15px
-				color #333
-				background-color #999
-			
-			.logout
-				position relative
-				display block
-				padding 10px 15px
-				color #000
-				background-color #fff
+				margin-right 15px
+				background-color $naranja
+				border-radius 100%
+				padding 10px
+				height 40px
+				width 40px
+				font-size 20px	
 				
-			li a:hover
-				background-color gris5
-				border none 
-				
-			.marron a:hover
-				background-color marron
-			
-			.verde a:hover
-				background-color verde
-				
-			.rosa a:hover
-				background-color rosa
-			
-			.celeste a:hover
-				background-color celeste
-				
-			.naranja a:hover
-				background-color naranja
-				
-		.nav .open>a, .nav .open>a:focus, .nav .open>a:hover
-			background-color transparent
-			border-color none
-		
-		.dropdown-menu
-			background-color gris7
-		
-		.dropdown:hover .dropdown-menu
-			display block
-
-			
-		
-
-
+	.padding-block
+		padding 20px !important
 	
-	.imagen
-		width 100%
-		heigth 50px
-		background-repeat: no-repeat;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		background-size: cover;
-		background-position: center;
-		
-		img
-			width 100%	
-		
-		.default
-			display block
-			
-		
-	button
+	.btn-naranja
+		background-color $naranja
 		color #fff
-		float left
-	
-	.icon-bar
-		background #fff
+		font-weight bold
+		border-color $naranja
+		height 40px
+		
+		i
+			color #fff !important
 
 
+.menu
+	.btn-primary
+		margin-top 7px
 
 //FOOTER----------------------------
 .footer
-	background-color form9
-	position fixed
+	background-color #222
+	position absolute
 	bottom 0
 	width 100%
-	
-	.contenedor
-		padding 0px
-	
-	.clientes
-		height 150px
-		background-color gris1
-		
-		.carousel .row .span3
-			display block
-			float left
-			width 25%
-			margin-left 0
-			box-sizing border-box
 	
 	.copyright
 		background-color gris10
@@ -306,105 +83,6 @@
 					padding 2px 5px 0 0
 					float right
 					
-	.bloque-footer
-		
-		.item
-			padding 30px
-			
-			li
-				color gris3
-				font-size 12px
-		
-			hr
-				border-top 1px solid rgba(114, 113, 113, .5)
-				border-bottom: none
-				margin 12px 0
-				
-			img
-				width 100%
-				padding-bottom 20px					
-				
-			p
-				color gris3
-				font-size 13px
-			
-			.min
-				font-size 11px
-					
-			.titulo
-			
-				h4
-					color gris2
-					font-size 14px
-					margin 0
-					padding 0
-				
-				hr
-					margin 8px 0px 20px 0px
-			
-			.form
-				width 100%
-				
-				::-webkit-input-placeholder
-					color rgba(114, 113, 113, .7)
-					font-size 11px
-					font-style oblique	
-
-				:-moz-placeholder
-					color gris3
-
-				::-moz-placeholder
-					color gris3
-
-				:-ms-input-placeholder
-					color gris3
-	  
-				input 
-					width 100%
-					background-color gris8
-					border 1px solid rgba(114, 113, 113, .3)
-					padding 5px
-					margin 2px 0
-					border-radius 2px
-					color gris2
-					height 28px
-						
-				textarea
-					width 100%
-					background-color gris8
-					border 1px solid rgba(114, 113, 113, .3)
-					padding 5px
-					margin 2px 0
-					border-radius 2px
-					color gris2
-					height 80px
-					
-				button
-					width 100px
-					background-color form-azul
-					padding 5px
-					margin 6px 0
-					border-radius 2px
-					color gris2
-					border none
-					text-transform uppercase
-					font-family fuente-bold
-					letter-spaccing 1px
-					font-size 10px
-					height 28px
-			
-			.form-suscripcion
-				padding-top 10px
-				
-				input 
-					width 63%
-					margin-right 2%
-					float left
-		
-				button
-					width 35%
-					float left
-					margin 2px 0
 					
 
 

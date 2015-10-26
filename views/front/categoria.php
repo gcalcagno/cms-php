@@ -9,7 +9,7 @@
 			<h3>Categorias</h3>
 		</div>
 		<!--Bloque posteos-->
-		<div class="posteos">
+		<div class="bloque">
 
 			<?php
 				//instancia clases

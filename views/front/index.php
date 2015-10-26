@@ -26,8 +26,8 @@
 	           	?>
 	           		<!--item post-->
 					<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
-						<div class="imagen">
-							<img src="uploads/<?php echo $portada; ?>">
+						<div class="imagen" style="background-image: url(uploads/<?php echo $portada; ?>)">
+					
 						</div>
 						<div class="texto">
 							<h6 class="text-uppercase text-naranja"><?php 

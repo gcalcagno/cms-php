@@ -29,20 +29,20 @@
 
 		        <!-- LOGIN -->
 				<?php
+
 			        if (isset($_POST["admin"]) && !empty($_POST["admin"])) {
 					    $usuario = $_POST["admin"];   
 						$password = $_POST["password_usuario"];
-						$back = new Back();
-						$resultado = $back->login($usuario, $password);
+						$front = new Front();
+						$resultado = $front->login($usuario, $password);
+						echo 'form';
 					}
 				
 					if(!isset($_SESSION['usuario'])){
 					?>
 
-			        <div class="frase">
-			            <div class="subtitulo titulo-gris"> 
-			                <h3>Login</h3>
-			            </div>
+			        <div class="login">
+			           	<h3 class="text-uppercase subtitulo-default">Login</h3>
 			            <form role="form" class="form" action="" method="post">
 						  	<div class="form-group">
 						    	<label>Usuario</label>
@@ -52,9 +52,9 @@
 						    	<label>Password</label>
 						   		<input name="password_usuario" type="password" class="form-control" required >
 						 	</div>
-						 	<button name="iniciar" type="submit" class="btn enviar">Enviar</button>
+						 	<button name="iniciar" type="submit" class="btn enviar text-uppercase">Ingresar</button>
 						</form>
-						<a href="registro" >Registrarme</a>
+						<a href="registro" class="lnk text-uppercase" >Registrarme</a>
 			        </div>
 		        <?php
 					}
@@ -64,57 +64,44 @@
 
 		        <!-- ARTICULOS -->
 		        <div class="articulos">
-		            <div class="titulo-multiple"> 
-		                <div class="subtitulo-a">
-		                    <h3 class="text-uppercase b-gris7">Articulos recientes</h3>
-		                </div>
-		            </div>
+		            
+		            <h3 class="text-uppercase subtitulo-default">Articulos recientes</h3>
+		            
 		            <!--widget-->
 		            <div class="widget">
-		                <!--item-->
+
+		            <?php
+						//instancia clases
+						$front = new Front();
+						$general = new General();
+
+						//listado de post
+						$articulosRecientes = $front->articulosRecientes();
+			  			while($row = $articulosRecientes->fetch_assoc()){
+			  				//imagenNoticia
+				  			$portada = $front->imagenPortadaNoticia($row['id']);
+				  			//categoriaNoticia
+				  			$categoria = $front->categoriaNoticia($row['id']);
+			           	?>
+
+						<!--item-->
 		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen">
-		                        <img src="assets/front/images/foto-post-3.jpg">
+		                    <div class="imagen" style="background-image: url(uploads/<?php echo $portada; ?>)">
 		                    </div>
 		                    <div class="texto">
-		                        <h6 class="text-uppercase text-verde">Videos</h6>
-		                        <h4>Video charl sobre Ley Nacional Bosques nativos</h4>
+		                        <h6 class="text-uppercase text-naranja"><?php 
+						        foreach($categoria as $valor){
+									echo $valor. ' ';
+								}
+							 ?></h6>
+		                        <h4><?php echo $row['titulo']; ?></h4>
 		                    </div>
 		                </div>
 		                <!-- item-->
-		                <!--item-->
-		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen">
-		                        <img src="assets/front/images/foto-post-4.jpg">
-		                    </div>
-		                    <div class="texto">
-		                        <h6 class="text-uppercase text-naranja">Noticias</h6>
-		                        <h4>Se creó la reserva Nacional en Pizarro Salta</h4>
-		                    </div>
-		                </div>
-		                <!-- item-->
-		                <!--item-->
-		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen">
-		                        <img src="assets/front/images/foto-post-1.jpg">
-		                    </div>
-		                    <div class="texto">
-		                        <h6 class="text-uppercase text-marron">Articulos</h6>
-		                        <h4>¿Por qué es importante crear el parque nacional La Felicidad?</h4>
-		                    </div>
-		                </div>
-		                <!-- item-->
-		                <!--item-->
-		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen">
-		                        <img src="assets/front/images/foto-post-2.jpg">
-		                    </div>
-		                    <div class="texto">
-		                        <h6 class="text-uppercase text-rosa">Eventos</h6>
-		                        <h4>Taller Jardines Amigables con la Nayuraleza</h4>
-		                    </div>
-		                </div>
-		                <!-- item-->
+					<?php
+			        	}
+		        	?>
+
 		            </div>
 		            <!--widget-->
 		        </div>

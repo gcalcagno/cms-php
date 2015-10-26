@@ -38,6 +38,12 @@ class BackController
         require 'views/back/listCategoria.php';
     }
 
+    function listUsuario()
+    {
+        //Llamada a la vista
+        require 'views/back/listUsuario.php';
+    }
+
     function cargaCategoria()
     {
         //Llamada a la vista

@@ -6,39 +6,36 @@
 @import "normalize"
 vendor-prefixes = webkit o ms moz official
 
-/*variables - COLOR */
-marron=#a56d35
-naranja=#f2540c
-verde=#00ad6a
-rosa=#ff4274
-celeste=#10a89e
-form-azul=#434858
-rosa-tienda=#ae3f6c
-azul-seguinos=#3f59ab
-//grises
-gris1=#e1e1e1
-gris2=#c1bfbf
-gris3=#727171
-gris4=#787e8e
-gris5=#485169
-gris6=#454b5b
-gris7=#2c3242
-gris8=#2a2a2a
-form9=#1f1f1f
-gris10=#161616
+$naranja = #ff9c00
+$naranja-medio = #CC984B
+$naranja-dark = #d58512
 
-/*tipografias*/
-fuente-fina =  'Arvo-Regular', Arial, Helvetica, sans-serif
-fuente-bold =  'Arvo-Bold', Arial, Helvetica, sans-serif
+$yorkville-regular = 'yorkville'
 
-@font-face 
-  font-family 'Arvo-Regular'
-  src url('../fonts/Arvo-Regular.ttf')
+$amble-regular = 'amble-regular'
 
-@font-face 
-  font-family 'Arvo-Bold'
-  src url('../fonts/Arvo-Bold.ttf')
- 
+@font-face
+	font-family 'yorkville'
+	src url('../fonts/yorkville.eot'), 
+		url('../fonts/yorkville.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/yorkville.woff2') format('woff2'), 
+		url('../fonts/yorkville.woff') format('woff'), 
+		url('../fonts/yorkville.ttf') format('truetype'),
+		url('../fonts/yorkville.svg#arvoregular') format('svg')
+	font-weight normal
+	font-style normal
+	
+@font-face
+	font-family 'amble-regular'
+	src url('../fonts/amble-regular.eot'), 
+		url('../fonts/amble-regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/amble-regular.woff2') format('woff2'), 
+		url('../fonts/amble-regular.woff') format('woff'), 
+		url('../fonts/amble-regular.ttf') format('truetype'),
+		url('../fonts/amble-regular.svg#arvoregular') format('svg')
+	font-weight normal
+	font-style normal
+    
 h1,h2,h3,h4,h5,p
 	margin 0
 	padding 0
@@ -49,12 +46,17 @@ h1,h2,h3,h4,h5,p
 .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, 
 .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
 .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
-  	padding-left 0px
-  	padding-right 0px
+	padding-left 0px
+	padding-right 0px
   	
 .panel-default
 	padding 10px
 
+html
+	position relative
+	min-height 100%
+	padding-bottom 60px
+	
 body
 	/*scroll explorer*/
 	scrollbar-base-color: #C1BFBF;
@@ -64,8 +66,9 @@ body
 	scrollbar-arrow-color: #C1BFBF;
 	scrollbar-shadow-color: #C1BFBF;
 	scrollbar-dark-shadow-color: #C1BFBF;
-	color gris
-	font-family fuente-fina
+	background-color #d1d1d1
+	font-family $amble-regular
+	padding-top 60px
 	
 /* barra de scroll navegador */
 ::-webkit-scrollbar /*fondo*/
@@ -83,8 +86,9 @@ body
 	border-top none !important
 	box-shadow none !important
 
-:focus
-	outline 0px
+a:focus, button:focus
+	outline none
+	border none
 
 li, ul
 	list-style none
@@ -101,41 +105,11 @@ hr
 	width 100%
 	line-height 1
 		
-
-/* BOTONES */		
-.boton
-	border-radius 5px
-	display inline
-	padding 5px
-	color white
-
-
-/* BACKGROUND */				
-.b-naranja
-	background-color naranja
-	
-.b-gris4
-	background-color gris4
-	
-.b-gris7
-	background-color gris7
-
-
-/* COLOR DE TEXTO */
-.text-naranja
-	color naranja !important
-	
-.text-celeste
-	color celeste !important
-	
-.text-verde
-	color verde !important
-	
-.text-marron
-	color marron !important
-	
-.text-rosa
-	color rosa !important
+:hover
+	transition all 300ms ease-out 5ms
+	-ms-transition all 300ms ease-out 5ms
+	-webkit-transition all 300ms ease-out 5ms
+	-ms-transition all 300ms ease-out 5ms
 
 
 
@@ -161,20 +135,6 @@ hr
 
 /**  TABLETS LANDSCAPE **/
 @media screen and (min-width: 771px) and (max-width : 900px){
-
-	.subtitulo-doble .subtitulo-a {
-		width: 50%;
-		margin-right: 0;
-	}
-	
-	.subtitulo-doble .subtitulo-b {
-		width: 50%;
-		margin-right: 0;
-	}
-	
-	.subtitulo-doble h3 {
-		font-size: 9px;
-	}
 
 }
 

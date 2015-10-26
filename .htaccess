@@ -14,3 +14,4 @@ RewriteRule ^admin-noticia/?$ index.php
 RewriteRule ^admin-categoria/?$ index.php
 RewriteRule ^admin-categoria-carga/?$ index.php
 RewriteRule ^admin-noticia-carga/?$ index.php
+RewriteRule ^admin-usuario/?$ index.php

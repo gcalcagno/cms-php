@@ -19,7 +19,7 @@
 	$back = new Back();
 	$general = new General();
 	//listado de noticias
-	$resultado = $back->listado('categoria');
+	$resultado = $back->listado('usuarios');
 ?>
 
 
@@ -28,10 +28,7 @@
 		<div class="col-lg-12 col-md-12">	
 			<div class="title-page">
 				<h3>
-					<i class="icon-title icon glyphicon glyphicon-tags"></i><strong>Categorias</strong>
-					<a href="admin-categoria-carga"> 
-						<button type="button" class="text-uppercase btn  btn-naranja pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar categoria</button>
-					</a>
+					<i class="icon-title icon glyphicon glyphicon-user"></i><strong>Usuarios</strong>
 				</h3>
 			</div>
 
@@ -42,6 +39,8 @@
 						<thead>
 							<tr>
 								<th class="text-uppercase">Nombre</th>
+								<th class="text-uppercase">Apellido</th>
+								<th class="text-uppercase">Email</th>
 								<th class="text-uppercase center">Activo</th>
 								<th></th>
 							</tr>
@@ -51,17 +50,14 @@
 						while($row = $resultado->fetch_assoc()){?>
 							<tr>
 								<td><?php echo $row['nombre']; ?></td>
+								<td><?php echo $row['apellido']; ?></td>
+								<td><?php echo $row['email']; ?></td>
 								<td class="center">
 									<?php if( $row['activo'] == '1'){
 										echo 'si';
 									}else{
 										echo 'no';
 									}?>
-								</td>
-								<td>
-									<a href="#" >
-										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
-									</a> 
 								</td>
 							</tr>
 

@@ -12,36 +12,37 @@
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
+<div >  
+   	
+		<div class="col-lg-12 col-md-12 col-sm-12">	
+			<div class="title-page">
+				<h3>
+					<i class="icon-title fa fa-flag-o red"></i><strong>Cargar Categoria</strong>
+					<a href="admin-categoria"> 
+						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
+					</a>
+				</h3>
+			</div>
 
-<section id="main-content">
-
-   	<section class="wrapper">  
-   			
-			<br><br>
-
-			<div class="row">
-               	
-				<div class="col-lg-9 col-md-12">	
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3><i class="fa fa-flag-o red"></i><strong>   Cargar Categoria</strong></h3>
-						</div>
-
-						<form enctype="multipart/form-data" role="form" action="carga.php" method="POST" >
-						  <div class="form-group">
-						    <label for="nombre">nombre</label>
-						    <input type="text" class="form-control" name="nombre">
-						  </div>
-						  <button type="submit" class="btn btn-default" id="btnLogA">Cargar</button>
-						</form>
-
-					</div>
-						
+			<div class="panel panel-default">
+				
+				<div class="panel-body padding-block">
+					<form class="col-lg-6 col-md-6 col-sm-12" enctype="multipart/form-data" role="form" action="carga.php" method="POST" >
+					  <div class="form-group">
+					    <label for="nombre">Nombre de Categoria</label>
+					    <input type="text" class="form-control" name="nombre">
+					  </div>
+					  <button type="submit" class="btn btn-naranja" id="btnLogA">Cargar</button>
+					</form>
 				</div>
+
 			</div>	
 
-          </section>
-      </section>
+		</div>
+
+	</div>
+
+
 
 
 

@@ -12,22 +12,22 @@
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
+<div >  
+   	
+		<div class="col-lg-12 col-md-12">	
+			<div class="title-page">
+				<h3>
+					<i class="icon-title fa fa-flag-o red"></i><strong>Cargar Noticia</strong>
+					<a href="admin-noticia"> 
+						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
+					</a>
+				</h3>
+			</div>
 
-<section id="main-content">
-
-   	<section class="wrapper">  
-   			
-			<br><br>
-
-			<div class="row">
-               	
-				<div class="col-lg-9 col-md-12">	
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3><i class="fa fa-flag-o red"></i><strong>   Cargar Noticia</strong></h3>
-						</div>
-
-						<form enctype="multipart/form-data" role="form" action="" method="POST" >
+			<div class="panel panel-default">
+				
+				<div class="panel-body padding-block">
+					<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						  <div class="form-group">
 						    <label for="email">Titulo</label>
 						    <input type="text" class="form-control" name="titulo">
@@ -43,7 +43,7 @@
 
 						  <div class="form-group">
 						    <label for="email">Img Portada</label>
-						    <input class="form-control" name="uploadedfile" type="file" />
+						    <input class="form-control " name="uploadedfile" type="file" />
 						  </div>
 
 						  <div class="form-group">
@@ -59,17 +59,15 @@
 						    <?php } ?>
 						  </div>
 
-						  <button type="submit" class="btn btn-default" id="btnLogA">Cargar</button>
+						  <button type="submit" class="btn  btn-naranja" id="btnLogA">Cargar</button>
 						</form>
-
-					</div>
-						
 				</div>
+
 			</div>	
 
-          </section>
-      </section>
+		</div>
 
+	</div>
 
 
 	<?php
