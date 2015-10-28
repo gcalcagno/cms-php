@@ -15,10 +15,10 @@
 <?php startblock('contenido') ?> 
 
 	<?php
-		$back = new Back();
-        $countUsuarios = $back->count('usuarios');
-        $countNoticias = $back->count('noticia');
-        $countCategorias = $back->count('categoria');
+		$DashboardBack = new DashboardBack();
+        $countUsuarios = $DashboardBack->count('usuarios');
+        $countNoticias = $DashboardBack->count('noticia');
+        $countCategorias = $DashboardBack->count('categoria');
 
     ?>
 

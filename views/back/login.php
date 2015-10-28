@@ -8,8 +8,8 @@
         if (isset($_POST["admin"]) && !empty($_POST["admin"])) {
 		    $usuario = $_POST["admin"];   
 			$password = $_POST["password_usuario"];
-			$back = new Back();
-			$resultado = $back->login($usuario, $password);
+			$UsuarioBack = new UsuarioBack();
+			$resultado = $UsuarioBack->login($usuario, $password);
 		}
 	
 		if(!isset($_SESSION['usuario'])){

@@ -16,9 +16,9 @@
 
 
 <?php //instancia clases
-	$back = new Back();
+	$UsuarioBack = new UsuarioBack();
 	//listado de noticias
-	$resultado = $back->listado('usuarios');
+	$resultado = $UsuarioBack->listado();
 ?>
 
 

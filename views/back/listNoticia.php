@@ -16,10 +16,10 @@
 
 
 <?php //instancia clases
-	$back = new Back();
+	$NoticiasBack = new NoticiasBack();
 	$FuncionesConfig = new FuncionesConfig();
 	//listado de noticias
-	$resultado = $back->listado('noticia');
+	$resultado = $NoticiasBack->listado();
 ?>
 
 
