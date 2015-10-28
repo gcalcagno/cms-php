@@ -1,9 +1,9 @@
 <?php
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+//require_once "config/conection.php";
 
-class General
+class FuncionesConfig
 {
 
     /* 
@@ -17,4 +17,5 @@ class General
             echo '...';
         }
     }
+
 }

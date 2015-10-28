@@ -17,7 +17,6 @@
 
 <?php //instancia clases
 	$back = new Back();
-	$general = new General();
 	//listado de noticias
 	$resultado = $back->listado('categoria');
 ?>

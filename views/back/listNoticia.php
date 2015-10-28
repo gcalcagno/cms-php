@@ -17,7 +17,7 @@
 
 <?php //instancia clases
 	$back = new Back();
-	$general = new General();
+	$FuncionesConfig = new FuncionesConfig();
 	//listado de noticias
 	$resultado = $back->listado('noticia');
 ?>
@@ -55,7 +55,7 @@
 							<tr>
 								<td ><?php echo $row['fecha']; ?></td>
 								<td ><?php echo $row['titulo']; ?></td>
-								<td ><?php $general->limitarTextos($row['texto'], 150); ?></td>
+								<td ><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></td>
 								<td ><?php echo $row['descarga']; ?></td>
 								<td class="center">
 									<?php if( $row['activo'] == '1'){

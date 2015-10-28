@@ -34,8 +34,8 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li>
-                <a href="logout" class="logout">
-                  logout
+                <a href="logout" class="logout text-uppercase">
+                  <i class="icon-menu logout icon glyphicon glyphicon-log-in "></i>logout
                 </a>
               </li>
             </ul>

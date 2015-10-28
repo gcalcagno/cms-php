@@ -3,7 +3,7 @@
 //CONECTA BASE DE DATOS
 //require_once "config/conection.php";
 
-class Database
+class DatabaseConfig
 {
 
     /********************* 

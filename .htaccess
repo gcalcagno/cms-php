@@ -7,6 +7,7 @@ RewriteRule ^noticias/?$ index.php
 RewriteRule ^categorias/?$ index.php
 RewriteRule ^registro/?$ index.php
 RewriteRule ^logout/?$ index.php
+RewriteRule ^perfil/?$ index.php
 
 RewriteRule ^admin/?$ index.php
 RewriteRule ^admin-dashboard/?$ index.php

@@ -30,23 +30,27 @@
 		        <!-- LOGIN -->
 				<?php
 
-			        if (isset($_POST["admin"]) && !empty($_POST["admin"])) {
-					    $usuario = $_POST["admin"];   
+			        if (isset($_POST["email"]) && !empty($_POST["email"])) {
+					    $usuario = $_POST["email"];   
 						$password = $_POST["password_usuario"];
-						$front = new Front();
-						$resultado = $front->login($usuario, $password);
-						echo 'form';
+						$UsuarioFront = new UsuarioFront();
+						$resultado = $UsuarioFront->login($usuario, $password);
 					}
-				
-					if(!isset($_SESSION['usuario'])){
-					?>
+					
+					$uri = $_SERVER['REQUEST_URI'];
+					$parte=explode ('/',$uri);
+					$i= $parte[3];
 
+					if(!isset($_SESSION['usuario']) && $i != 'registro'){
+					?>
+					<p class="subtitulo-general text-uppercase">Ingresá para ver mas categorías y filtrar según tus preferencias.</p>
+			           	
 			        <div class="login">
-			           	<h3 class="text-uppercase subtitulo-default">Login</h3>
+			        	<h3 class="text-uppercase subtitulo-default">Login</h3>
 			            <form role="form" class="form" action="" method="post">
 						  	<div class="form-group">
-						    	<label>Usuario</label>
-						    	<input name="admin" type="text" class="form-control" required >
+						    	<label>Email</label>
+						    	<input name="email" type="email" class="form-control" required >
 						  	</div>
 						  	<div class="form-group">
 						    	<label>Password</label>
@@ -72,21 +76,19 @@
 
 		            <?php
 						//instancia clases
-						$front = new Front();
-						$general = new General();
+						$NoticiasFront = new NoticiasFront();
+						$CategoriasFront = new CategoriasFront();
 
 						//listado de post
-						$articulosRecientes = $front->articulosRecientes();
+						$articulosRecientes = $NoticiasFront->noticiasRecientes();
 			  			while($row = $articulosRecientes->fetch_assoc()){
-			  				//imagenNoticia
-				  			$portada = $front->imagenPortadaNoticia($row['id']);
-				  			//categoriaNoticia
-				  			$categoria = $front->categoriaNoticia($row['id']);
+				  			$imagen = $NoticiasFront->imagenPortadaNoticia($row['id']);
+				  			$categoria = $CategoriasFront->categoriaNoticia($row['id']);
 			           	?>
 
 						<!--item-->
 		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen" style="background-image: url(uploads/<?php echo $portada; ?>)">
+		                    <div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
 		                    </div>
 		                    <div class="texto">
 		                        <h6 class="text-uppercase text-naranja"><?php 

@@ -37,6 +37,10 @@
 			$FrontController->registro();
 			break;
 
+			case "perfil":
+			$FrontController->perfil();
+			break;
+
 			case "logout":
 			$BackController->logout();
 			break;

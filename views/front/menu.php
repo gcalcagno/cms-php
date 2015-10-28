@@ -37,13 +37,13 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li>
-                <a href="perfil" class="logout">
+                <a href="perfil" class="text-uppercase">
                  <i class="icon-menu icon glyphicon glyphicon-user"></i> PERFIL
                 </a>
               </li>
               <li>
-                <a href="logout" class="logout">
-                  <i class="icon-menu icon glyphicon glyphicon-log-in"></i>logout
+                <a href="logout" class="text-uppercase">
+                  <i class="icon-menu logout icon glyphicon glyphicon-log-in "></i>logout
                 </a>
               </li>
             </ul>
@@ -58,11 +58,11 @@
                 <i class="icon-menu glyphicon glyphicon-list-alt"></i>Noticias
             </a>
           </li>
-          <li class="text-uppercase <?php if($i == 'categorias'){echo 'active';} ?>">
+          <!--<li class="text-uppercase <?php if($i == 'categorias'){echo 'active';} ?>">
             <a href="categorias">
                 <i class="icon-menu icon glyphicon glyphicon-tags"></i>Categorias
             </a>
-          </li>
+          </li>-->
           </li>
          
         </ul>

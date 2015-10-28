@@ -12,7 +12,7 @@ class Back
     **********************/
     public function cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria)
     {
-        $db = new Database();
+        $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
         //inserta noticia
@@ -31,13 +31,23 @@ class Back
         }
 
         //inserta imagen noticia
-        $noticia=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
+        if(!empty($imagen)){
+            $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
+
+        }
+        
+        //inserta categoria noticia
+        foreach ($categoria as $cat) {
+
+            $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
+
+        }
 
         //valida
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
         }else{
-            echo 'Datos ingresados correctamente';
+            return $mensajeOk = 'Datos ingresados correctamente';
         }
 
         //$resultado->close();
@@ -48,7 +58,7 @@ class Back
     **********************/
     public function listado($tabla)
     {
-        $db = new Database();
+        $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
         //busca id noticia
@@ -70,8 +80,8 @@ class Back
     **********/
     public function login($usuario, $password)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
-        $db = new Database();
+        //clase DatabaseConfig utiliza el método connect() para conectarse a la base de datos
+        $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
         //consulta
@@ -101,42 +111,6 @@ class Back
     }
 
 
-    /*************
-    ** Registro **
-    *************/
-    public function registro($usuario, $password)
-    {
-
-        //clase Database utiliza el método connect() para conectarse a la base de datos
-        $db = new Database();
-        $mysqli = $db->connect();
-
-        //consulta
-        $resultado=$mysqli->query('SELECT * FROM usuarios');
-        $verificar_usuario = 0;
-
-        //valida usuario
-        while($row = $resultado->fetch_assoc()){
-            if($row["email"] == $usuario){ 
-                $verificar_usuario = 1; 
-            }
-        } 
-  
-        //ingresa el usuario
-        if($verificar_usuario == 0) { 
-            $sql = "INSERT INTO usuarios (email,password) VALUES ('$usuario','$password')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
-            $resultado=$mysqli->query($sql);
-            echo 'Usted se ha registrado correctamente.';
-        //si el usuario ya existe muestra un mensaje
-        } else { 
-            echo 'Este usuario ya ha sido registrado anteriormente.'; 
-        } 
-
-        return $resultado;
-        $resultado->close();
-   
-    }
-
 
 
     /*************
@@ -145,7 +119,7 @@ class Back
     public function count($tabla)
     {
 
-        $db = new Database();
+        $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
         $resultado=$mysqli->query("SELECT COUNT(*) FROM $tabla");

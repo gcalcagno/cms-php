@@ -9,52 +9,66 @@ class FrontController
     **************************/
     function home()
     {
+        session_start();
+        $NoticiasFront = new NoticiasFront();
+        $CategoriasFront = new CategoriasFront();
 
-        //clase Database utiliza el método connect() para conectarse a la base de datos
-        $db = new Database();
-        $mysqli = $db->connect();
+        $noticiasGenerales = $NoticiasFront->listadoNoticia('generales');
 
-        //consulta
-        $resultado=$mysqli->query("SELECT * FROM noticia");
-        if(!$resultado){
-            die('Hubo un error en la consulta [' . $db->error . ']');
+        if(isset($_SESSION['usuario'])){ 
+            $usuarioCategoria = $CategoriasFront->usuarioCategoria($_SESSION['usuario']);
         }
 
-        //Llamada a la vista
+        //Llamada a la vista y utiliza variable $noticiasGenerales y $usuarioCategoria
         require 'views/front/index.php';
-        return $resultado;
-        $resultado->close();
 
     }
 	
+
 	/************************** 
     ** Listado de categorias **
     **************************/
     function listadoCategoria()
     {
-        $db = new Database();
-        $mysqli = $db->connect();
+        $CategoriasFront = new CategoriasFront();
+        $categorias = $CategoriasFront->listado();
 
-        //consulta
-        $resultado=$mysqli->query('SELECT * FROM categoria');
-        if(!$resultado){
-            die('Hubo un error en la consulta [' . $db->error . ']');
-        }
-
-        
-        //Llamada a la vista
+        //Llamada a la vista y envía la variable $categorias
         require 'views/front/categoria.php';
-        return $resultado;
-        $resultado->close();
-
     }
 
 
+    /************************** 
+    ** Registro ***************
+    **************************/
     function registro()
     {
         //Llamada a la vista
         require 'views/front/registro.php';
 
+    }
+
+
+    /************************** 
+    ** Perfil *****************
+    **************************/
+    function perfil()
+    {
+        session_start();
+        $UsuarioFront = new UsuarioFront();
+        $CategoriasFront = new CategoriasFront();
+
+        $usuarioDatos = $UsuarioFront->usuarioDatos($_SESSION['usuario']);
+        while($row = $usuarioDatos->fetch_assoc()){
+            $email = $row['email'];
+            $nombre = $row['nombre'];
+            $apellido = $row['apellido'];
+        }
+
+        $usuarioCategoria = $CategoriasFront->usuarioCategoria($_SESSION['usuario']);
+
+        //Llamada a la vista y envía las variable $email, $nombre, $apellido y $usuarioCategoria
+        require 'views/front/perfil.php';
     }
 	
 	
