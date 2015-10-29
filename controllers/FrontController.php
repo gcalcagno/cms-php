@@ -1,4 +1,7 @@
+<?php session_start();?>
+
 <?php
+
 //CONECTA BASE DE DATOS
 require_once "config/core.php";
 
@@ -9,7 +12,6 @@ class FrontController
     **************************/
     function home()
     {
-        session_start();
         $NoticiasFront = new NoticiasFront();
         $CategoriasFront = new CategoriasFront();
 
@@ -54,7 +56,6 @@ class FrontController
     **************************/
     function perfil()
     {
-        session_start();
         $UsuarioFront = new UsuarioFront();
         $CategoriasFront = new CategoriasFront();
 

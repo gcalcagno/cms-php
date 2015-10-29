@@ -1,6 +1,5 @@
 <?php 
- //Crear sesión
- session_start();
+session_start();
  //Vaciar sesión
  $_SESSION = array();
  //Destruir Sesión

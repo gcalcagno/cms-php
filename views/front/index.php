@@ -1,11 +1,8 @@
 <?php include 'views/front/layout.php' ?> 
 
-
 <?php startblock('contenido') ?> 
 
-
 	<?php 
-
 		$FuncionesConfig = new FuncionesConfig();
 		$NoticiasFront = new NoticiasFront();
 		$CategoriasFront = new CategoriasFront();
@@ -33,20 +30,22 @@
 				  			$categoria = $CategoriasFront->categoriaNoticia($row['id']);
 			           	?>
 			           		<!--item post-->
-							<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
-								<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
-							
+			           		<a href="noticia.php?id=<?php echo $row['id']; ?>">
+								<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
+									<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
+								
+									</div>
+									<div class="texto">
+										<h6 class="text-uppercase text-naranja"><?php 
+									        foreach($categoria as $cat){
+												echo '<span class="glyphicon glyphicon-tag"></span>'.$cat. ' ';
+											}
+										 ?></h6>
+										<h4><?php $FuncionesConfig->limitarTextos($row['titulo'], 40); ?></h4>
+										<p><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></p>
+									</div>
 								</div>
-								<div class="texto">
-									<h6 class="text-uppercase text-naranja"><?php 
-								        foreach($categoria as $cat){
-											echo $cat. ' ';
-										}
-									 ?></h6>
-									<h4><?php $FuncionesConfig->limitarTextos($row['titulo'], 50); ?></h4>
-									<p><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></p>
-								</div>
-							</div>
+							</a>
 							<!-- item post-->
 					<?php
 			        	} //end while
@@ -81,20 +80,22 @@
 				  	$categoria = $CategoriasFront->categoriaNoticia($row['id']);
 	           	?>
 	           		<!--item post-->
-					<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
-						<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)"></div>
-						<div class="texto">
-							<h6 class="text-uppercase text-naranja">
-								<?php 
-							        foreach($categoria as $cat){
-										echo $cat. ' ';
-									}
-								?>
-							</h6>
-							<h4><?php $FuncionesConfig->limitarTextos($row['titulo'], 50); ?></h4>
-							<p><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></p>
+	           		<a href="noticia.php?id=<?php echo $row['id']; ?>">
+						<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
+							<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)"></div>
+							<div class="texto">
+								<h6 class="text-uppercase text-naranja">
+									<?php 
+								        foreach($categoria as $cat){
+											echo '<span class="glyphicon glyphicon-tag"></span> '.$cat. ' ';
+										}
+									?>
+								</h6>
+								<h4><?php $FuncionesConfig->limitarTextos($row['titulo'], 40); ?></h4>
+								<p><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></p>
+							</div>
 						</div>
-					</div>
+					</a>
 					<!-- item post-->
 			<?php
 	        	}

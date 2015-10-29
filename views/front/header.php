@@ -1,4 +1,4 @@
- <?php
+<?php 
       //carga todas las clases
       require_once "config/core.php";
 ?>

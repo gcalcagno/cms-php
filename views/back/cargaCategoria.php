@@ -1,6 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
 	{

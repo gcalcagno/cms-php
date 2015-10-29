@@ -87,18 +87,20 @@
 			           	?>
 
 						<!--item-->
-		                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-		                    <div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
-		                    </div>
-		                    <div class="texto">
-		                        <h6 class="text-uppercase text-naranja"><?php 
-						        foreach($categoria as $valor){
-									echo $valor. ' ';
-								}
-							 ?></h6>
-		                        <h4><?php echo $row['titulo']; ?></h4>
-		                    </div>
-		                </div>
+						<a href="noticia.php?id=<?php echo $row['id']; ?>">
+			                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+			                    <div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
+			                    </div>
+			                    <div class="texto">
+			                        <h6 class="text-uppercase text-naranja"><?php 
+							        foreach($categoria as $cat){
+										echo '<span class="glyphicon glyphicon-tag"></span>'.$cat. ' ';
+									}
+								 ?></h6>
+			                        <h4><?php echo $row['titulo']; ?></h4>
+			                    </div>
+			                </div>
+		                </a>
 		                <!-- item-->
 					<?php
 			        	}

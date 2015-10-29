@@ -16,7 +16,9 @@ class NoticiasFront
 
         //consulta
         $resultado=$mysqli->query(
-            "SELECT * FROM `categoria` c, `categorianoticia`cn, `noticia`n WHERE c.nombre = '$categoria' and cn.idNoticia = n.id and cn.idCategoria = c.id");
+            "SELECT * FROM `categoria` c, `categorianoticia`cn, `noticia`n 
+            WHERE c.nombre = '$categoria' and cn.idNoticia = n.id 
+            and cn.idCategoria = c.id ORDER BY n.id DESC");
        
         if(!$resultado){
             die('Hubo un error en la consulta [' . $db->error . ']');
@@ -64,6 +66,25 @@ class NoticiasFront
 
         //consulta
         $resultado=$mysqli->query("SELECT * FROM noticia  ORDER BY id DESC LIMIT 5");
+        if(!$resultado){
+            die('Hubo un error en la consulta [' . $db->error . ']');
+        }
+
+        return $resultado;
+
+        $resultado->close();
+
+    }
+
+
+    public function noticia($id)
+    {
+        //clase Database utiliza el método connect() para conectarse a la base de datos
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        //consulta
+        $resultado=$mysqli->query("SELECT * FROM noticia  WHERE id = $id");
         if(!$resultado){
             die('Hubo un error en la consulta [' . $db->error . ']');
         }

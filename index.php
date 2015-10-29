@@ -18,64 +18,68 @@
 		switch($i)
 		{
 			case "":
-			$FrontController->home();
+				$FrontController->home();
 			break;
 
 			case "home":
-			$FrontController->home();
+				$FrontController->home();
 			break;
 			
 			case "noticias":
-			$FrontController->home();
+				$FrontController->home();
+			break;
+
+			case "noticiaid":
+				$FrontController->home();
 			break;
 
 			case "categorias":
-			$FrontController->listadoCategoria();
+				$FrontController->listadoCategoria();
 			break;
 
 			case "registro":
-			$FrontController->registro();
+				$FrontController->registro();
 			break;
 
 			case "perfil":
-			$FrontController->perfil();
+				$FrontController->perfil();
 			break;
 
 			case "logout":
-			$BackController->logout();
+				$BackController->logout();
 			break;
 
 			case "admin":
-			$BackController->login();
+				$BackController->login();
 			break;
 
 			case "admin-dashboard":
-			$BackController->dashboard();
+				$BackController->dashboard();
 			break;
 
 			case "admin-noticia":
-			$BackController->listNoticia();
+				$BackController->listNoticia();
 			break;
 
 			case "admin-categoria":
-			$BackController->listCategoria();
+				$BackController->listCategoria();
 			break;
 
 			case "admin-noticia-carga":
-			$BackController->cargaNoticia();
+				$BackController->cargaNoticia();
 			break;
 
 			case "admin-categoria-carga":
-			$BackController->cargaCategoria();
+				$BackController->cargaCategoria();
 			break;
 			
 			case "admin-usuario":
-			$BackController->listUsuario();
+				$BackController->listUsuario();
 			break;
 
 			//default, evita error 404, y si ingresa alguna otra url
 			default:
-				echo "error";
+				$BackController->listUsuario();
 			}
 
 	?>

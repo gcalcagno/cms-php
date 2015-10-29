@@ -6,6 +6,10 @@
       $parte=explode ('/',$uri);
       $i= $parte[3];
 
+      if(!isset($_SESSION['usuario'])){
+        //session_start();
+    }
+
     ?>
 
     <!-- menu-->    
@@ -21,7 +25,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="admin-dashboard"><img class="logo" src="assets/back/images/logo-white.png" alt=""></a>
+        <a class="navbar-brand" href="home">
+          <img class="logo" src="assets/back/images/logo-white.png" alt="">
+        </a>
       </div>
      
       <!-- Agrupar los enlaces de navegación, los formularios y cualquier

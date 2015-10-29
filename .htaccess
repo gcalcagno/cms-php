@@ -4,6 +4,7 @@ RewriteEngine On
 
 RewriteRule ^home/?$ index.php
 RewriteRule ^noticias/?$ index.php
+RewriteRule ^noticiaid/(\w*)/?$ index.php?id=$1
 RewriteRule ^categorias/?$ index.php
 RewriteRule ^registro/?$ index.php
 RewriteRule ^logout/?$ index.php

@@ -16,6 +16,10 @@ class BackController
 
     function dashboard()
     {
+        $DashboardBack = new DashboardBack();
+        $countUsuarios = $DashboardBack->count('usuarios');
+        $countNoticias = $DashboardBack->count('noticia');
+        $countCategorias = $DashboardBack->count('categoria');
         //Llamada a la vista
         require 'views/back/dashboard.php';
     }
@@ -28,19 +32,25 @@ class BackController
 
     function listNoticia()
     {
+        $NoticiasBack = new NoticiasBack();
+        $resultado = $NoticiasBack->listado();
         //Llamada a la vista
         require 'views/back/listNoticia.php';
     }
 
     function listCategoria()
     {
+        $CategoriasBack = new CategoriasBack();
+        $resultado = $CategoriasBack->listado();
         //Llamada a la vista
         require 'views/back/listCategoria.php';
     }
 
     function listUsuario()
     {
-        //Llamada a la vista
+        $UsuarioBack = new UsuarioBack();
+        $resultado = $UsuarioBack->listado();
+        //Llamada a la vista 
         require 'views/back/listUsuario.php';
     }
 

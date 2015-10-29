@@ -20,7 +20,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="admin-dashboard"><img class="logo" src="assets/back/images/logo-white.png" alt=""></a>
+        <a class="navbar-brand" href="admin-dashboard">
+          <img class="logo" src="assets/back/images/logo-white.png" alt="">
+        </a>
       </div>
      
       <!-- Agrupar los enlaces de navegación, los formularios y cualquier
@@ -56,7 +58,7 @@
           </li>
           <li class="text-uppercase <?php if($i == 'admin-categoria'|| $i == 'admin-categoria-carga'){echo 'active';} ?>">
             <a href="admin-categoria">
-                <i class="icon-menu icon glyphicon glyphicon-tags"></i>Categoria
+                <i class="icon-menu icon glyphicon glyphicon-tags"></i>Categorias
             </a>
           </li>
           </li>

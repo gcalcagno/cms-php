@@ -1,6 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
 
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
@@ -13,15 +11,6 @@
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
-
-	<?php
-		$DashboardBack = new DashboardBack();
-        $countUsuarios = $DashboardBack->count('usuarios');
-        $countNoticias = $DashboardBack->count('noticia');
-        $countCategorias = $DashboardBack->count('categoria');
-
-    ?>
-
 
    	<div class="dashboard">  
 

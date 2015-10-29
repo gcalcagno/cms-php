@@ -1,6 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
 
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
@@ -13,14 +11,6 @@
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
-
-
-<?php //instancia clases
-	$CategoriasBack = new CategoriasBack();
-	//listado de noticias
-	$resultado = $CategoriasBack->listado('categoria');
-?>
-
 
    	<div class="tablas">  
    	

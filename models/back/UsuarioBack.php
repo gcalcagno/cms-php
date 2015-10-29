@@ -47,7 +47,6 @@ class UsuarioBack
             //valida password
             if($row["password"] == $password){
                 //almacena datos de usuario en una sesión
-                session_start();  
                 $_SESSION['usuario'] = $usuario;  
                 header("Location: admin-dashboard");  
                 echo 'usuario logueado';

@@ -1,6 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
 	{
@@ -60,8 +58,8 @@
 				}
 				$imagen =  $_FILES['uploadedfile']['name'];
 				//Llamamos al metodo para insertar los datos
-				$back = new Back();
-				$mensajeOk = $back->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
+				$NoticiasBack = new NoticiasBack();
+				$mensajeOk = $NoticiasBack->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
 			}
 	    
 	    }
@@ -116,9 +114,9 @@
 
 						  <div class="form-group">
 						    <label for="email">Categorias:</label><br>
-							<?php $front = new Front();
+							<?php $CategoriasBack = new CategoriasBack();
 							//listado de categorias
-							$resultado = $front->listadoCategoria();
+							$resultado = $CategoriasBack->listado();
 							while($row = $resultado->fetch_assoc()){
 						    ?>
 						    <label for="email"><?php echo $row['nombre']; ?></label>

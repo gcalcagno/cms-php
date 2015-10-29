@@ -1,6 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
 
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
@@ -16,10 +14,7 @@
 
 
 <?php //instancia clases
-	$NoticiasBack = new NoticiasBack();
 	$FuncionesConfig = new FuncionesConfig();
-	//listado de noticias
-	$resultado = $NoticiasBack->listado();
 ?>
 
 

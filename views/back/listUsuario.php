@@ -1,7 +1,4 @@
 <?php
-	//crea la sesion
-	session_start();
-
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
 	{
@@ -13,14 +10,6 @@
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
-
-
-<?php //instancia clases
-	$UsuarioBack = new UsuarioBack();
-	//listado de noticias
-	$resultado = $UsuarioBack->listado();
-?>
-
 
    	<div class="tablas">  
    	
@@ -40,6 +29,7 @@
 								<th class="text-uppercase">Nombre</th>
 								<th class="text-uppercase">Apellido</th>
 								<th class="text-uppercase">Email</th>
+								<th class="text-uppercase">Tipo</th>
 								<th class="text-uppercase center">Activo</th>
 								<th></th>
 							</tr>
@@ -51,6 +41,7 @@
 								<td><?php echo $row['nombre']; ?></td>
 								<td><?php echo $row['apellido']; ?></td>
 								<td><?php echo $row['email']; ?></td>
+								<td><?php echo $row['tipo']; ?></td>
 								<td class="center">
 									<?php if( $row['activo'] == '1'){
 										echo 'si';
