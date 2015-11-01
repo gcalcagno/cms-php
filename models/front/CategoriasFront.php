@@ -1,7 +1,7 @@
 <?php
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 
 class CategoriasFront
 {
@@ -55,6 +55,7 @@ class CategoriasFront
         $resultado=$mysqli->query(
             "SELECT * FROM `categoria` c, `usuariocategoria` uc, `noticia`n WHERE uc.idUsuario = '$id ' 
             and uc.idCategoria = n.id and uc.idCategoria = c.id");
+
        
         $array = array();
 

@@ -30,9 +30,9 @@
 				  			$categoria = $CategoriasFront->categoriaNoticia($row['id']);
 			           	?>
 			           		<!--item post-->
-			           		<a href="noticia.php?id=<?php echo $row['id']; ?>">
+			           		<a href="noticia/<?php echo $row['id']; ?>">
 								<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
-									<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
+									<div class="imagen" style="background-image: url(/uploads/<?php echo $imagen; ?>)">
 								
 									</div>
 									<div class="texto">
@@ -80,7 +80,7 @@
 				  	$categoria = $CategoriasFront->categoriaNoticia($row['id']);
 	           	?>
 	           		<!--item post-->
-	           		<a href="noticia.php?id=<?php echo $row['id']; ?>">
+	           		<a href="noticia/<?php echo $row['id']; ?>">
 						<div class="item col-xs-12 col-sm-4 col-md-4 ol-lg-4">
 							<div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)"></div>
 							<div class="texto">

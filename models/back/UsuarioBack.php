@@ -2,7 +2,7 @@
 
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 
 class UsuarioBack
 {
@@ -39,7 +39,7 @@ class UsuarioBack
         $mysqli = $db->connect();
 
         //consulta
-        $resultado=$mysqli->query("SELECT * FROM usuarios WHERE email = '$usuario'");
+        $resultado=$mysqli->query("SELECT * FROM usuarios WHERE email = '$usuario' AND tipo = 'admin'");
 
 
         //valida usuario
@@ -49,6 +49,7 @@ class UsuarioBack
                 //almacena datos de usuario en una sesión
                 $_SESSION['usuario'] = $usuario;  
                 header("Location: admin-dashboard");  
+                exit();
                 echo 'usuario logueado';
             }else{
                 echo "Contraseña Incorrecta";    
@@ -61,6 +62,15 @@ class UsuarioBack
 
         $resultado->close();
    
+    }
+
+
+    /********** 
+    ** validaUsuario **
+    **********/
+    public function validaUsuario()
+    {
+       
     }
 
 

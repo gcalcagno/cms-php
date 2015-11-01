@@ -4,7 +4,7 @@
 
       $uri = $_SERVER['REQUEST_URI'];
       $parte=explode ('/',$uri);
-      $i= $parte[3];
+      $i= $parte[1];
 
     ?>
     <!-- menu-->    
@@ -20,8 +20,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="admin-dashboard">
-          <img class="logo" src="assets/back/images/logo-white.png" alt="">
+        <a class="navbar-brand" href="/admin-dashboard">
+          <img class="logo" src="/assets/back/images/logo-white.png" alt="">
         </a>
       </div>
      
@@ -36,7 +36,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li>
-                <a href="logout" class="logout text-uppercase">
+                <a href="/logout" class="logout text-uppercase">
                   <i class="icon-menu logout icon glyphicon glyphicon-log-in "></i>logout
                 </a>
               </li>
@@ -47,23 +47,23 @@
         <ul class="nav navbar-nav pull-right">
 
           <li class="text-uppercase <?php if($i == 'admin-dashboard'){echo 'active';} ?>">
-            <a href="admin-dashboard">
+            <a href="/admin-dashboard">
                 <i class="icon-menu fa fa-laptop"></i>dashboard
             </a>
           </li>
           <li class="text-uppercase <?php if($i == 'admin-noticia' || $i == 'admin-noticia-carga'){echo 'active';} ?>">
-            <a href="admin-noticia">
+            <a href="/admin-noticia">
                 <i class="icon-menu glyphicon glyphicon-list-alt"></i>Noticias
             </a>
           </li>
           <li class="text-uppercase <?php if($i == 'admin-categoria'|| $i == 'admin-categoria-carga'){echo 'active';} ?>">
-            <a href="admin-categoria">
+            <a href="/admin-categoria">
                 <i class="icon-menu icon glyphicon glyphicon-tags"></i>Categorias
             </a>
           </li>
           </li>
           <li class="text-uppercase <?php if($i == 'admin-usuario'){echo 'active';} ?>">
-            <a href="admin-usuario">
+            <a href="/admin-usuario">
                 <i class="icon-menu icon glyphicon glyphicon-user"></i>Usuarios
             </a>
           </li>

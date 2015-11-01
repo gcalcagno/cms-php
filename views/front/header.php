@@ -1,6 +1,6 @@
 <?php 
       //carga todas las clases
-      require_once "config/core.php";
+      require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +18,13 @@
       <![endif]-->
       
       <!-- CSS de Bootstrap -->
-      <link href="assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <link href="assets/bootstrap-3.3.4/css/bootstrap-social.css" rel="stylesheet" media="screen">
+      <link href="/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="/assets/bootstrap-3.3.4/css/bootstrap-social.css" rel="stylesheet" media="screen">
     
       <!-- CSS de font-awesome-4.3.0 para iconos sociales-->
-      <link href="assets/front/fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
+      <link href="/assets/front/fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
 
       <!-- CSS -->
-      <link href="assets/front/css/estilos.css?v=05" rel="stylesheet" media="screen">
+      <link href="/assets/front/css/estilos.css?v=05" rel="stylesheet" media="screen">
     
     </head>

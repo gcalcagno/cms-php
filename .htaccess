@@ -17,3 +17,6 @@ RewriteRule ^admin-categoria/?$ index.php
 RewriteRule ^admin-categoria-carga/?$ index.php
 RewriteRule ^admin-noticia-carga/?$ index.php
 RewriteRule ^admin-usuario/?$ index.php
+
+RewriteRule ^noticia/([^/]+) /views/front/noticia.php?id=$1 [L]
+RewriteRule ^editarNoticia/([^/]+) /views/back/editarNoticia.php?id=$1 [L]

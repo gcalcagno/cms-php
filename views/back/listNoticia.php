@@ -24,7 +24,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title glyphicon glyphicon-list-alt"></i><strong>Noticias</strong>
-					<a href="admin-noticia-carga"> 
+					<a href="/admin-noticia-carga"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar noticia</button>
 					</a>
 				</h3>
@@ -60,7 +60,7 @@
 									}?>
 								</td>
 								<td class="center">
-									<a href="#" >
+									<a href="editarNoticia/<?php echo $row['id']; ?>" >
 										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
 									</a>
 								</td>

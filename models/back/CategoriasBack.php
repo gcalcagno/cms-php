@@ -2,7 +2,7 @@
 
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 
 class CategoriasBack
 {

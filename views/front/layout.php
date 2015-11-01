@@ -1,4 +1,7 @@
-<?php require_once 'assets/ti.php' ?> 
+<?php 
+	require($_SERVER['DOCUMENT_ROOT'].'/assets/ti.php'); 
+	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
+?> 
 
 
 	<!-- HEADER -->
@@ -39,7 +42,7 @@
 					
 					$uri = $_SERVER['REQUEST_URI'];
 					$parte=explode ('/',$uri);
-					$i= $parte[3];
+					$i= $parte[1];
 
 					if(!isset($_SESSION['usuario']) && $i != 'registro'){
 					?>
@@ -87,9 +90,9 @@
 			           	?>
 
 						<!--item-->
-						<a href="noticia.php?id=<?php echo $row['id']; ?>">
+						<a href="/noticia/<?php echo $row['id']; ?>">
 			                <div class="item col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-			                    <div class="imagen" style="background-image: url(uploads/<?php echo $imagen; ?>)">
+			                    <div class="imagen" style="background-image: url(/uploads/<?php echo $imagen; ?>)">
 			                    </div>
 			                    <div class="texto">
 			                        <h6 class="text-uppercase text-naranja"><?php 

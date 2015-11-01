@@ -1,7 +1,7 @@
 <?php
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+require_once  $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 
 class NoticiasFront
 {
@@ -85,8 +85,10 @@ class NoticiasFront
 
         //consulta
         $resultado=$mysqli->query("SELECT * FROM noticia  WHERE id = $id");
-        if(!$resultado){
-            die('Hubo un error en la consulta [' . $db->error . ']');
+        
+        if(!$resultado || mysqli_num_rows($resultado) == 0){
+            //die('Hubo un error en la consulta [' . $db->error . ']');
+            echo 'Noticia no encontrada';
         }
 
         return $resultado;
@@ -94,6 +96,10 @@ class NoticiasFront
         $resultado->close();
 
     }
+
+
+   
+
 
 
 }

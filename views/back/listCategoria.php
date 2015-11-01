@@ -18,7 +18,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title icon glyphicon glyphicon-tags"></i><strong>Categorias</strong>
-					<a href="admin-categoria-carga"> 
+					<a href="/admin-categoria-carga"> 
 						<button type="button" class="text-uppercase btn  btn-naranja pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar categoria</button>
 					</a>
 				</h3>

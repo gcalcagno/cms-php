@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php
 	//validamos si se inició sesión
 	if(!isset($_SESSION['usuario'])) 
@@ -5,6 +7,9 @@
 	  header('Location: index.php'); 
 	  exit();
 	}
+
+	//carga todas las clases
+     // require_once "config/core.php";
 
 ?>
 <?php
@@ -57,22 +62,36 @@
 				$imagen =  $_FILES['uploadedfile']['name'];
 				//Llamamos al metodo para insertar los datos
 				$NoticiasBack = new NoticiasBack();
-				$mensajeOk = $NoticiasBack->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
+				$mensajeOk = $NoticiasBack->updateNoticia ($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
 			}
 	    
-	    }
+	    } 
 
 
 	?>
-<?php include 'views/back/layout.php' ?> 
+
+<?php include dirname(__FILE__).'/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
-<div >  
+
+	<?php
+
+		if (isset($_GET["id"])){
+			$CategoriasFront = new CategoriasFront();
+			$NoticiasFront = new NoticiasFront();
+			$NoticiasBack = new NoticiasBack();
+			$resultado = $NoticiasBack->editarNoticia($_GET["id"]);
+		
+			while($row = $resultado->fetch_assoc()){
+				$imagen = $NoticiasFront->imagenPortadaNoticia($row['id']);
+				$categoria = $CategoriasFront->categoriaNoticia($row['id']);
+	?>
+	<div >  
    	
 		<div class="col-lg-12 col-md-12">	
 			<div class="title-page">
 				<h3>
-					<i class="icon-title fa fa-flag-o red"></i><strong>Cargar Noticia</strong>
+					<i class="icon-title fa fa-flag-o red"></i><strong>Editar Noticia</strong>
 					<a href="/admin-noticia"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
 					</a>
@@ -88,21 +107,21 @@
 					<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						  <div class="form-group">
 						    <label for="email">Titulo</label>
-						    <input type="text" class="form-control" name="titulo">
+						    <input value="<?php echo $row['titulo'];?>" type="text" class="form-control" name="titulo">
 						  </div>
 						  <?php if(isset($errorTitulo)){?>
 							<div class="alert alert-danger"><?php echo $errorTitulo ;?></div>
 							<?php }?>
 						  <div class="form-group">
 						    <label for="pwd">Texto:</label>
-						    <textarea class="form-control" name="texto"></textarea>
+						    <textarea class="form-control" name="texto"><?php echo nl2br($row['texto']);?></textarea>
 						  </div>
 						  <?php if(isset($errorTexto)){?>
 							<div class="alert alert-danger"><?php echo $errorTexto ;?></div>
 							<?php }?>
 						  <div class="form-group">
 						    <label for="email">Lnk de Descarga</label>
-						    <input type="text" class="form-control" name="descarga">
+						    <input value="<?php echo $row['descarga'];?>"type="text" class="form-control" name="descarga">
 						  </div>
 
 						  <div class="form-group">
@@ -126,7 +145,7 @@
 							<?php }?>
 						  </div>
 
-						  <button type="submit" class="btn  btn-naranja" id="btnLogA">Cargar</button>
+						  <button type="submit" class="btn  btn-naranja" id="btnLogA">Guadar</button>
 						</form>
 				</div>
 
@@ -135,8 +154,9 @@
 		</div>
 
 	</div>
-
-
-
-
-<?php endblock() ?> 
+<?php 
+		}
+	}
+?>
+	
+	<?php endblock() ?> 

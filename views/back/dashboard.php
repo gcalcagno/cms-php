@@ -20,7 +20,7 @@
 			</div>      
 
 			<div class="block-dashboard">
-				<a href="admin-noticia">
+				<a href="/admin-noticia">
 					<div class="block-item">
 						<div class="panel panel-primary ">
 						  <div class="panel-body">
@@ -35,7 +35,7 @@
 					</div>
 				</a>
 
-				<a href="admin-categoria">
+				<a href="/admin-categoria">
 					<div class="block-item">
 						<div class="panel panel-primary">
 						 	<div class="panel-body">
@@ -50,7 +50,7 @@
 					</div>
 				</a>
 				
-				<a href="admin-usuario">
+				<a href="/admin-usuario">
 					<div class="block-item">
 						<div class="panel panel-primary">
 							<div class="panel-body">

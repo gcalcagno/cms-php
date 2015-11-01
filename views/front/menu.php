@@ -4,7 +4,7 @@
 
       $uri = $_SERVER['REQUEST_URI'];
       $parte=explode ('/',$uri);
-      $i= $parte[3];
+      $i= $parte[1];
 
       if(!isset($_SESSION['usuario'])){
         //session_start();
@@ -25,8 +25,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="home">
-          <img class="logo" src="assets/back/images/logo-white.png" alt="">
+        <a class="navbar-brand" href="/home">
+          <img class="logo" src="/assets/back/images/logo-white.png" alt="">
         </a>
       </div>
      
@@ -43,12 +43,12 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li>
-                <a href="perfil" class="text-uppercase">
+                <a href="/perfil" class="text-uppercase">
                  <i class="icon-menu icon glyphicon glyphicon-user"></i> PERFIL
                 </a>
               </li>
               <li>
-                <a href="logout" class="text-uppercase">
+                <a href="/logout" class="text-uppercase">
                   <i class="icon-menu logout icon glyphicon glyphicon-log-in "></i>logout
                 </a>
               </li>
@@ -60,7 +60,7 @@
         <ul class="nav navbar-nav pull-right">
 
           <li class="text-uppercase <?php if($i == 'noticias'  || $i == ''){echo 'active';} ?>">
-            <a href="noticias">
+            <a href="/noticias">
                 <i class="icon-menu glyphicon glyphicon-list-alt"></i>Noticias
             </a>
           </li>

@@ -1,7 +1,7 @@
 <?php
 
 //CONECTA BASE DE DATOS
-require_once "config/core.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 
 class UsuarioFront
 {
@@ -43,7 +43,7 @@ class UsuarioFront
     /*************
     ** Registro **
     *************/
-    public function registro($usuario, $password)
+    public function registro($email, $password, $nombre, $apellido)
     {
 
         //clase Database utiliza el método connect() para conectarse a la base de datos
@@ -56,14 +56,15 @@ class UsuarioFront
 
         //valida usuario
         while($row = $resultado->fetch_assoc()){
-            if($row["email"] == $usuario){ 
+            if($row["email"] == $email){ 
                 $verificar_usuario = 1; 
             }
         } 
   
         //ingresa el usuario
         if($verificar_usuario == 0) { 
-            $sql = "INSERT INTO usuarios (email,password) VALUES ('$usuario','$password')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
+            $sql = "INSERT INTO usuarios (email,password, nombre, apellido, tipo) VALUES 
+            ('$email','$password','$nombre','$apellido','user')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
             $resultado=$mysqli->query($sql);
             echo 'Usted se ha registrado correctamente.';
         //si el usuario ya existe muestra un mensaje

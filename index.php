@@ -8,7 +8,7 @@
 		//detecta url
 		$uri = $_SERVER['REQUEST_URI'];
 		$parte=explode ('/',$uri);
-		$i= $parte[3];
+		$i= $parte[1];
 		//echo $i;
 
 		$BackController= new BackController;
@@ -79,7 +79,7 @@
 
 			//default, evita error 404, y si ingresa alguna otra url
 			default:
-				$BackController->listUsuario();
+				echo 'error';
 			}
 
 	?>

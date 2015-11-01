@@ -5,14 +5,14 @@
 
 	<!-- LOGIN -->
 	<?php
+		$UsuarioBack = new UsuarioBack();
+
         if (isset($_POST["admin"]) && !empty($_POST["admin"])) {
 		    $usuario = $_POST["admin"];   
 			$password = $_POST["password_usuario"];
-			$UsuarioBack = new UsuarioBack();
 			$resultado = $UsuarioBack->login($usuario, $password);
 		}
 	
-		if(!isset($_SESSION['usuario'])){
 		?>
 
         <div class="form-admin">
@@ -32,9 +32,7 @@
 			 	<button name="iniciar" type="submit" class="text-uppercase btn ">Ingresar</button>
 			</form>
         </div>
-    <?php
-		}
-	?>
+
 	<!-- END // LOGIN -->
 	
 

@@ -6,7 +6,13 @@
         if(isset($_POST['enviar']))
         { 
             //valida campos vacíos
-            if($_POST['emailRegistro'] == '' or $_POST['passwordRegistro'] == '' or $_POST['repasswordRegistro'] == '') { 
+            if($_POST['emailRegistro'] == '' || 
+              $_POST['passwordRegistro'] == '' ||
+              $_POST['repasswordRegistro'] == ''||
+              $_POST['nombreRegistro'] == ''||
+              $_POST['apellidoRegistro'] == ''
+
+              ) { 
                 echo 'Por favor llene todos los campos.';
             } else { 
                 //valida contraseñas iguales
@@ -16,7 +22,7 @@
                     //llama a la clase
                     $UsuarioFront = new UsuarioFront();
                     $resultado = $UsuarioFront->registro($_POST["emailRegistro"], 
-                      $_POST["passwordRegistro"]);
+                      $_POST["passwordRegistro"], $_POST["nombreRegistro"], $_POST["apellidoRegistro"]);
                 }
             }
         }

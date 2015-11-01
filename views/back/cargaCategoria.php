@@ -16,7 +16,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title fa fa-flag-o red"></i><strong>Cargar Categoria</strong>
-					<a href="admin-categoria"> 
+					<a href="/admin-categoria"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
 					</a>
 				</h3>
