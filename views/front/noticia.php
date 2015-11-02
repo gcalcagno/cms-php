@@ -7,8 +7,8 @@
 <?php
 	
 	$FuncionesConfig = new FuncionesConfig();
-		$NoticiasFront = new NoticiasFront();
-		$CategoriasFront = new CategoriasFront();
+	$NoticiasFront = new NoticiasFront();
+	$CategoriasFront = new CategoriasFront();
 
 	if (isset($_GET["id"])){
 		$NoticiasFront = new NoticiasFront();

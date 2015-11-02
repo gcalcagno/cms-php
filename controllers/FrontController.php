@@ -25,6 +25,17 @@ class FrontController
         require 'views/front/index.php';
 
     }
+
+
+    /************************** 
+    ** Noticia*****************
+    **************************/
+    function noticia()
+    {
+        //Llamada a la vista y utiliza variable $noticiasGenerales y $usuarioCategoria
+        require 'views/front/noticia.php';
+
+    }
 	
 
 	/************************** 

@@ -29,8 +29,8 @@
 				$FrontController->home();
 			break;
 
-			case "noticiaid":
-				$FrontController->home();
+			case "noticia":
+				$FrontController->noticia();
 			break;
 
 			case "categorias":
