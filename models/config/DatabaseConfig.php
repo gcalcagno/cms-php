@@ -11,7 +11,7 @@ class DatabaseConfig
     *********************/
     public function connect()
     {
-        $mysqli = mysqli_connect("192.254.236.253", "gcmaster_cms", "123456", 'gcmaster_cms');
+        $mysqli = mysqli_connect("192.254.236.253", "gcmaster_cms", "Hh;%aDnv%]d", 'gcmaster_cms');
         //local
         //$mysqli = mysqli_connect("localhost", "root", "", 'gcmaster_cms');
         if (mysqli_connect_errno()) {
