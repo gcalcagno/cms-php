@@ -20,10 +20,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/admin-dashboard">
+        <a class="navbar-brand" href="/home">
           <img class="logo" src="/assets/back/images/logo-white.png" alt="">
         </a>
       </div>
+
+      
      
       <!-- Agrupar los enlaces de navegación, los formularios y cualquier
            otro elemento que se pueda ocultar al minimizar la barra -->
