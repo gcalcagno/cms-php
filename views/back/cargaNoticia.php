@@ -45,7 +45,7 @@
 				$descarga = $_POST["descarga"];  
 				$fecha = date("Y-m-d"); 
 				$categoria = $_POST["categoria"]; 
-				print_r($_POST);
+
 				$target_path = "uploads/";
 				$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
@@ -85,6 +85,7 @@
 					<?php if(isset($mensajeOk)){?>
 					<div class="alert alert-success"><?php echo $mensajeOk ;?></div>
 					<?php }?>
+					
 					<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						  <div class="form-group">
 						    <label for="email">Titulo</label>

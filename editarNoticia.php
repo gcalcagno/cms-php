@@ -8,10 +8,10 @@
 	  exit();
 	}
 
-	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
+	//carga todas las clases
+      require_once "config/core.php";
 
 ?>
-
 <?php
 		$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
@@ -50,7 +50,9 @@
 				$descarga = $_POST["descarga"];  
 				$fecha = date("Y-m-d"); 
 				$categoria = $_POST["categoria"]; 
-			
+				
+				echo $categoria; 
+
 				$target_path = "uploads/";
 				$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
@@ -69,8 +71,7 @@
 
 
 	?>
-
-<?php include dirname(__FILE__).'/layout.php' ?> 
+<?php include 'views/back/layout.php' ?> 
 
 
 <?php startblock('contenido') ?> 
@@ -93,7 +94,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title fa fa-flag-o red"></i><strong>Editar Noticia</strong>
-					<a href="/admin-noticia"> 
+					<a href="admin-noticia"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
 					</a>
 				</h3>
@@ -115,7 +116,7 @@
 							<?php }?>
 						  <div class="form-group">
 						    <label for="pwd">Texto:</label>
-						    <textarea class="form-control" name="texto"><?php echo $row['texto'];?></textarea>
+						    <textarea class="form-control" name="texto"><?php echo nl2br($row['texto']);?></textarea>
 						  </div>
 						  <?php if(isset($errorTexto)){?>
 							<div class="alert alert-danger"><?php echo $errorTexto ;?></div>
@@ -131,28 +132,16 @@
 						  </div>
 
 						  <div class="form-group">
-						    <label for="categoria">Categorias:</label><br>
+						    <label for="email">Categorias:</label><br>
 							<?php $CategoriasBack = new CategoriasBack();
-
 							//listado de categorias
 							$resultado = $CategoriasBack->listado();
 							while($row = $resultado->fetch_assoc()){
 						    ?>
-						   		<label for="categoria"><?php echo $row['nombre']; ?></label>
-						    	<input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
-									<?php
-										$categoriaNoticia = $CategoriasBack->categoriaNoticiaCheck($row['id'], '1');
-										//si la categoria esta asignada a esa noticia
-										//echo $categoriaNoticia;
-										if($categoriaNoticia == true ){
-											echo 'checked';
-										}
-									?>
-				
-						    	>
+						    <label for="email"><?php echo $row['nombre']; ?></label>
+						    <input type="checkbox"  name="categoria[]" value="<?php echo $row['id']; ?>">
 
 						    <?php } ?>
-
 						    <?php if(isset($errorCategoria)){?>
 							<div class="alert alert-danger"><?php echo $errorCategoria ;?></div>
 							<?php }?>

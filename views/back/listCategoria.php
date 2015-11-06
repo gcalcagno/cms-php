@@ -48,8 +48,8 @@
 									}?>
 								</td>
 								<td>
-									<a href="#" >
-										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
+									<a href="eliminarCategoria/<?php echo $row['id']; ?>" >
+										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-remove"></span></button>
 									</a> 
 								</td>
 							</tr>

@@ -38,9 +38,7 @@ class NoticiasBack
         
         //inserta categoria noticia
         foreach ($categoria as $cat) {
-
             $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
-
         }
 
         //valida
@@ -62,41 +60,54 @@ class NoticiasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //inserta noticia
+        //actualiza titulo y texto
         $resultado=$mysqli->query("UPDATE noticia
-SET titulo='$titulo'
-WHERE id='1'");
+        SET titulo ='$titulo', texto = '$texto' WHERE id='1'");
 
         //busca id noticia
         $noticia=$mysqli->query("SELECT * FROM noticia WHERE titulo = '$titulo'");
-
         if ($noticia) {
             if($row = $noticia->fetch_assoc()){
-                echo '<br>'.$row['id'].'<br>';
                 $idNoticia = $row['id'];
             }
         }else{
-            echo '<br>NO HAY RESULTADOS<br>';
+            echo '<br>La noticia no existe<br>';
         }
 
-        //inserta imagen noticia
+        //si se envio una imagen la inserta
         if(!empty($imagen)){
-            $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
-
+           $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
         }
-        
-        //inserta categoria noticia
+
+        //busca categoria, y si la categoria recibida no esta relacionada con el usuario la inserta
         foreach ($categoria as $cat) {
+            //busca categoria
+            $categoria=$mysqli->query("SELECT * FROM categoria WHERE id = '$cat'");
 
-            $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
+            if ($categoria) {
+                if($row = $categoria->fetch_assoc()){
+                        //id categoria
+                        $idCategoria = $row['id'];
 
+                        //busca si existe categoria noticia
+                        $categoriaNoticia=$mysqli->query("SELECT * FROM categorianoticia 
+                        WHERE idNoticia = '$idNoticia' AND idCategoria = '$idCategoria' ");
+                        
+                        if ($categoriaNoticia) {
+                            //si no existe crea la relacion categoria noticia
+                            if(! $row = $categoriaNoticia->fetch_assoc()){
+                                $newCategoriaNoticia=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$idCategoria','$idNoticia')");
+                            }
+                        }
+                    }
+                }
         }
 
         //valida
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
         }else{
-            return $mensajeOk = 'Datos ingresados correctamente';
+            return $mensajeOk = 'Datos actualizados correctamente';
         }
 
         //$resultado->close();

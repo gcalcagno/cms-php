@@ -7,6 +7,38 @@
 	}
 ?>
 
+<?php
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+		
+		function validaRequerido($valor){
+	        if(empty($valor)){
+	            return false;
+	        }else{
+	            return true;
+	        }
+	    }
+
+		//Si recibe parametros post
+	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+	    	if (!validaRequerido($nombre)) {
+		        $errores[] = 'El campo nombre es obligatorio.';
+		        $errorNombre ='El campo nombre es obligatorio.';
+		    }
+
+		    if (empty($errores)) {
+
+		    	// Recibimos por POST los datos procedentes del formulario   
+				$nombre = $_POST["nombre"]; 
+				$CategoriasBack = new CategoriasBack();
+				$mensaje = $CategoriasBack->cargaCategoria($nombre);
+			}
+	    
+	    }
+
+
+	?>
+
 <?php include 'views/back/layout.php' ?> 
 
 <?php startblock('contenido') ?> 
@@ -25,11 +57,23 @@
 			<div class="panel panel-default">
 				
 				<div class="panel-body padding-block">
-					<form class="col-lg-6 col-md-6 col-sm-12" enctype="multipart/form-data" role="form" action="carga.php" method="POST" >
+
+					<?php if(isset( $mensaje['ok'] )){?>
+						<div class="alert alert-success"><?php echo $mensaje['ok'] ;?></div>
+					<?php }?>
+
+					<?php if(isset($mensaje['error'])){?>
+					<div class="alert alert-danger"><?php echo $mensaje['error'] ;?></div>
+					<?php }?>
+
+					<form class="col-lg-6 col-md-6 col-sm-12" enctype="multipart/form-data" role="form" action="" method="POST" >
 					  <div class="form-group">
 					    <label for="nombre">Nombre de Categoria</label>
 					    <input type="text" class="form-control" name="nombre">
 					  </div>
+					  <?php if(isset($errorNombre)){?>
+						<div class="alert alert-danger"><?php echo $errorNombre ;?></div>
+						<?php }?>
 					  <button type="submit" class="btn btn-naranja" id="btnLogA">Cargar</button>
 					</form>
 				</div>
