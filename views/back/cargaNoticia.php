@@ -101,10 +101,11 @@
 						  <?php if(isset($errorTexto)){?>
 							<div class="alert alert-danger"><?php echo $errorTexto ;?></div>
 							<?php }?>
-						  <div class="form-group">
+							
+						  <!--<div class="form-group">
 						    <label for="email">Lnk de Descarga</label>
 						    <input type="text" class="form-control" name="descarga">
-						  </div>
+						  </div>-->
 
 						  <div class="form-group">
 						    <label for="email">Img Portada</label>

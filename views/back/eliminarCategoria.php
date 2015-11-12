@@ -13,6 +13,7 @@
 ?>
 
 <?php
+
 		$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
@@ -45,6 +46,11 @@
 
 	<?php
 		if (isset($_GET["id"])){
+		$CategoriasBack = new CategoriasBack();
+		$categoria = $CategoriasBack->datos($_GET["id"]);
+		while($row = $categoria->fetch_assoc()){
+			$nombreCat = $row['nombre'];
+		}
 	?>
 	<div >  
    	
@@ -61,23 +67,28 @@
 			<div class="panel panel-default">
 				
 				<div class="panel-body padding-block">
-					<?php if(isset( $mensaje['ok'] )){?>
-						<div class="alert alert-success"><?php echo $mensaje['ok'] ;?></div>
-					<?php }?>
-
 					<?php if(isset($mensaje['error'])){?>
 						<div class="alert alert-danger"><?php echo $mensaje['error'] ;?></div>
 					<?php }?>
 
-					<form enctype="multipart/form-data" role="form" action="" method="POST" >
+					<?php if(isset( $mensaje['ok'] )){?>
+						<div class="alert alert-success"><?php echo $mensaje['ok'] ;?></div>
+					<?php }else{?>
+						<?php if(isset( $nombreCat)){?>
+						<form enctype="multipart/form-data" role="form" action="" method="POST" >
+						 	<div class="form-group">
+							    <label for="email">¿Esta seguro que quiere eliminar la categoria: " <?php echo $nombreCat; ?> "</label>
+							   <input value="<?php echo $_GET["id"];?>" hidden type="text" class="form-control" name="id">
+							</div>
+							
+							<button type="submit" class="btn  btn-naranja" id="btnLogA">Si</button>
+						</form>
+						<?php 
+							}else{
+								echo 'Categoria no encontrada';
+						}?>
 
-					 	<div class="form-group">
-						    <label for="email">¿Esta seguro que quiere liminar la categoria con id <?php echo $_GET["id"]; ?> ?</label>
-						   <input value="<?php echo $_GET["id"];?>" hidden type="text" class="form-control" name="id">
-						</div>
-						
-						<button type="submit" class="btn  btn-naranja" id="btnLogA">Si</button>
-					</form>
+					<?php }?>
 				</div>
 
 			</div>	
@@ -86,7 +97,6 @@
 
 	</div>
 <?php 
-
 	}
 ?>
 	

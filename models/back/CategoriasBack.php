@@ -29,6 +29,27 @@ class CategoriasBack
         //$resultado->close();
     }
 
+    /********************** 
+    ** Datos Categoria **
+    **********************/
+    public function datos($id)
+    {
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        //busca id noticia
+        $resultado=$mysqli->query("SELECT * FROM categoria WHERE  id ='$id' ");
+
+        //valida
+        if (!$resultado) {
+            die('Invalid query: '. mysql_error());
+        }
+
+       return $resultado;
+
+        //$resultado->close();
+    }
+
 
     /***************************** 
     ** Categoria Noticia existe **
@@ -49,7 +70,7 @@ class CategoriasBack
             return true;
         }
 
-      // print_r($resultado);s
+      print_r($categoriaNoticia);
 
         //$resultado->close();
     }
@@ -94,13 +115,26 @@ class CategoriasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //busca id noticia
+        //datos categoria
+        $categoria=$mysqli->query("SELECT * FROM categoria WHERE  id ='$id' ");
+        while($row = $categoria->fetch_assoc()){
+            $nombreCat = $row['nombre'];
+
+        }//busca id noticia
         $resultado=$mysqli->query("DELETE FROM categoria WHERE id = '$id' ");
 
-         if (!$mysqli->affected_rows) {
+        
+        
+
+        //valida
+        if (!$resultado) {
+            die('Invalid query: '. mysql_error());
+        }
+
+        if (!$mysqli->affected_rows) {
             $mensajes= array( "error" => "Ocurrió un error, intente nuevamente mas tarde."  );
         }else{
-           $mensajes= array( "ok" => "La categoria <strong>$id</strong> se ha eliminado correctamente."  );
+           $mensajes= array( "ok" => "La categoria <strong>$nombreCat</strong> se ha eliminado correctamente."  );
         }
 
         return $mensajes;

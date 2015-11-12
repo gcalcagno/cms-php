@@ -39,7 +39,7 @@
 								<th class="text-uppercase col-10 center">Fecha</th>
 								<th class="text-uppercase col-20 center">Titulo</th>
 								<th class="text-uppercase col-30 center">Texto</th>
-								<th class="text-uppercase col-20 center">Link de Descarga</th>
+								<!--<th class="text-uppercase col-20 center">Link de Descarga</th>-->
 								<th class="text-uppercase col-5 center">Activo</th>
 								<th class="text-uppercase col-5 center"></th>
 							</tr>
@@ -51,7 +51,7 @@
 								<td ><?php echo $row['fecha']; ?></td>
 								<td ><?php echo $row['titulo']; ?></td>
 								<td ><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?></td>
-								<td ><?php echo $row['descarga']; ?></td>
+								<!--<td ><?php //echo $row['descarga']; ?></td>-->
 								<td class="center">
 									<?php if( $row['activo'] == '1'){
 										echo 'si';
@@ -60,6 +60,9 @@
 									}?>
 								</td>
 								<td class="center">
+									<a href="eliminarNoticia/<?php echo $row['id']; ?>" >
+										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-remove"></span></button>
+									</a>
 									<a href="editarNoticia/<?php echo $row['id']; ?>" >
 										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
 									</a>
