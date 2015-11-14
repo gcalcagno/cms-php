@@ -1,6 +1,7 @@
 <?php 
 	require($_SERVER['DOCUMENT_ROOT'].'/assets/ti.php'); 
 	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
+	error_reporting(E_ERROR | E_PARSE);
 ?> 
 
 
@@ -101,11 +102,13 @@
 			                    <div class="imagen" style="background-image: url(/uploads/<?php echo $imagen; ?>)">
 			                    </div>
 			                    <div class="texto">
-			                        <h6 class="text-uppercase text-naranja"><?php 
-							        foreach($categoria as $cat){
-										echo '<span class="glyphicon glyphicon-tag"></span>'.$cat. ' ';
-									}
-								 ?></h6>
+			                        <h6 class="text-uppercase text-naranja">
+			                        <?php 
+								        foreach($categoria as $cat){
+											echo '<span class="glyphicon glyphicon-tag"></span>'.$cat. ' ';
+										}
+								 	?>
+								 	</h6>
 			                        <h4><?php echo $row['titulo']; ?></h4>
 			                    </div>
 			                </div>
