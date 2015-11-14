@@ -126,16 +126,18 @@
 							$resultado = $CategoriasBack->listado();
 							while($row = $resultado->fetch_assoc()){
 						    ?>
-						   		<label for="categoria"><?php echo $row['nombre']; ?></label>
-						    	<input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
-									<?php
-										$categoriaNoticia = $CategoriasBack->categoriaNoticiaCheck($row['id'], $_GET["id"]);
-										//si la categoria esta asignada a esa noticia
-										if($categoriaNoticia == true ){
-											echo 'checked';
-										}
-									?>
-						    	>
+						   		<p>
+						   			<?php echo $row['nombre']; ?>
+							    	<input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
+										<?php
+											$categoriaNoticia = $CategoriasBack->categoriaNoticiaCheck($row['id'], $_GET["id"]);
+											//si la categoria esta asignada a esa noticia
+											if($categoriaNoticia == true ){
+												echo 'checked';
+											}
+										?>
+							    	>
+						    	</p>
 
 						    <?php } ?>
 

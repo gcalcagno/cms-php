@@ -46,15 +46,14 @@ class UsuarioBack
                  $_SESSION['admin'] = $usuario;  
                 header("Location: admin-dashboard");  
                 exit();
-                echo 'usuario logueado';
             }else{
-                echo "Contraseña Incorrecta";    
+                $mensajes= array( "error1" => "Contraseña Incorrecta."  );   
             }
         }else{
-            echo "El nombre de usuario es incorrecto!";          
+            $mensajes= array( "error2" => "El nombre de usuario es incorrecto!."  );         
         }
 
-        return $resultado;
+        return $mensajes;
 
         $resultado->close();
    

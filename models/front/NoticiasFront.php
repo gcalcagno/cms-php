@@ -2,7 +2,6 @@
 
 //CONECTA BASE DE DATOS
 require_once  $_SERVER['DOCUMENT_ROOT']."/config/core.php";
-//require_once "config/core.php";
 
 class NoticiasFront
 {
@@ -19,8 +18,8 @@ class NoticiasFront
             WHERE c.nombre = '$categoria' and cn.idNoticia = n.id 
             and cn.idCategoria = c.id and n.activo = '1' ORDER BY n.id DESC");
        
-        if(!$resultado){
-            die('Hubo un error en la consulta [' . $db->error . ']');
+        if(mysqli_num_rows($resultado) == 0){
+            echo 'No hay noticias para esta categoria';
         }
 
         return $resultado;

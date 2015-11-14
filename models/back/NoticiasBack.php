@@ -56,8 +56,8 @@ class NoticiasBack
         $mysqli = $db->connect();
 
         $resultado=$mysqli->query("INSERT INTO noticia (titulo,texto, descarga,fecha) VALUES ('$titulo','$texto','$descarga','$fecha')");
-
-        $noticia=$mysqli->query("SELECT * FROM noticia WHERE titulo = '$titulo'");
+        $id = $mysqli->insert_id;
+        $noticia=$mysqli->query("SELECT * FROM noticia WHERE id = '$id'");
 
         if ($noticia) {
             if($row = $noticia->fetch_assoc()){
@@ -72,7 +72,8 @@ class NoticiasBack
         }
         
         foreach ($categoria as $cat) {
-            $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
+            $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) 
+                VALUES ('$cat','$idNoticia')");
         }
 
         if (!$resultado) {

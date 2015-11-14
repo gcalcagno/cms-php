@@ -37,12 +37,12 @@
 <?php startblock('contenido') ?> 
 
 	<?php
-		if (isset($_GET["id"])){
-		$CategoriasBack = new CategoriasBack();
-		$categoria = $CategoriasBack->datos($_GET["id"]);
-		while($row = $categoria->fetch_assoc()){
-			$nombreCat = $row['nombre'];
-		}
+		if (isset($_GET["id"]) && $_GET["id"] != '1'){
+			$CategoriasBack = new CategoriasBack();
+			$categoria = $CategoriasBack->datos($_GET["id"]);
+			while($row = $categoria->fetch_assoc()){
+				$nombreCat = $row['nombre'];
+			}
 	?>
 	<div >  
    	
@@ -90,6 +90,8 @@
 	</div>
 	
 	<?php 
+		}else{
+			echo 'La categoria <strong>Generales</strong> no se puede eliminar.';
 		}
 	?>
 	

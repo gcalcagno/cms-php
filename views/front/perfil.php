@@ -12,6 +12,36 @@
 
 <?php startblock('contenido') ?> 
 
+	<?php
+		$CategoriasBack = new CategoriasBack();
+		$UsuarioFront = new UsuarioFront();
+
+		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
+		
+		function validaRequerido($valor){
+	        if(empty($valor)){
+	            return false;
+	        }else{
+	            return true;
+	        }
+	    }
+
+		//Si recibe parametros post
+	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		    if (!validaRequerido($categoria)) {
+		        $errores[] = 'Debe seleccionar al menos una categoría.';
+		        $errorCategoria ='Debe seleccionar al menos una categoría.';
+		    }
+
+		    if (empty($errores)) {
+				$mensajeOk = $UsuarioFront->updateUsuarioCategoria ($id,$categoria);
+			}
+	    
+	    } 
+
+	?>
+
 	<!-- MIS DATOS -->
    	<div class="tablas">  
    	
@@ -31,7 +61,6 @@
 								<th class="text-uppercase">Usuario</th>
 								<th class="text-uppercase">Nombre</th>
 								<th class="text-uppercase">Apellido</th>
-								<!--<th></th>-->
 							</tr>
 						</thead>   
 						<tbody>
@@ -39,11 +68,6 @@
 								<td><?php echo $email; ?></td>
 								<td><?php echo $nombre; ?></td>
 								<td><?php echo $apellido; ?></td>
-								<!--<td>
-									<a href="#" >
-										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
-									</a> 
-								</td>-->
 							</tr>
 						</tbody>
 					</table>
@@ -69,6 +93,13 @@
 				</h3>
 			</div>
 
+			<?php if(isset($mensajeOk)){?>
+				<div class="alert alert-success"><?php echo $mensajeOk ;?></div>
+			<?php }?>
+			<?php if(isset($errorCategoria)){?>
+				<div class="alert alert-danger"><?php echo $errorCategoria ;?></div>
+			<?php }?>
+
 			<div class="panel panel-default">
 				
 				<div class="panel-body">
@@ -76,22 +107,38 @@
 						<thead>
 							<tr>
 								<th class="text-uppercase">Categorias</th>
-								<!--<th></th>-->
+								<th> Estado </th>
 							</tr>
 						</thead>   
 						<tbody>
 						<?php 
-						foreach($usuarioCategoria as $categoria){?>
-							<tr>
-								<td><?php echo $categoria ?></td>
-								<!--<td>
-									<a href="#" >
-										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
-									</a> 
-								</td>-->
+						 	//listado de categorias
+							$resultado = $CategoriasBack->listado();
+							while($row = $resultado->fetch_assoc()){
+					    ?>
+					    <form enctype="multipart/form-data" role="form" action="" method="POST" >
+						    <tr>
+						    	<?php if ($row['nombre'] != 'generales' && $row['nombre'] != 'Generales'){?>
+						   		<td><label for="categoria"><?php echo $row['nombre']; ?></label></td>
+						    	<td><input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
+									<?php
+										$usuarioCat = $UsuarioFront->usuarioCategoriaCheck($id, $row['id']);
+										//si la categoria esta asignada al usuario
+										if($usuarioCat == true ){
+											echo 'checked';
+										}
+									?>
+						    	></td>
+						    	<?php }?>
 							</tr>
+						    <?php } ?>
 
-							<?php } ?>
+							<tr>
+								<td colspan="2"> <button type="submit" name="enviar" value="Guardar" class="btn enviar btn-default text-uppercase">Guardar</button>
+	        					</td>	
+							</tr>
+						</form>
+						
 						</tbody>
 					</table>
 				</div>

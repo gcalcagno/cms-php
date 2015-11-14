@@ -69,9 +69,7 @@
 			<div class="panel panel-default">
 				
 				<div class="panel-body padding-block">
-					<?php if(isset($mensajeOk)){?>
-						<div class="alert alert-success"><?php echo $mensajeOk ;?></div>
-					<?php }?>
+					
 
 					<?php if(isset($errorTitulo)){?>
 						<div class="alert alert-danger"><?php echo $errorTitulo ;?></div>
@@ -84,6 +82,14 @@
 					<?php if(isset($errorCategoria)){?>
 						<div class="alert alert-danger"><?php echo $errorCategoria ;?></div>
 					<?php }?>
+
+					<?php if(isset($mensajeOk)){?>
+						<div class="alert alert-success"><?php echo $mensajeOk ;?></div>
+					<?php }else{ ?>
+
+
+
+						
 					
 					<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						  <div class="form-group">
@@ -122,7 +128,9 @@
 						  </div>
 
 						  <button type="submit" class="btn  btn-naranja" id="btnLogA">Cargar</button>
-						</form>
+					</form>
+					<?php }?>
+					
 				</div>
 
 			</div>	

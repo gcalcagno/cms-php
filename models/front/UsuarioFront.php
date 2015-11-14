@@ -97,5 +97,61 @@ class UsuarioFront
 
     }
 
+    /***************************** 
+    ** Usuario Categoria existe **
+    ******************************/
+    public function usuarioCategoriaCheck($idUsuario, $idCategoria)
+    {
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $usuarioCategoria=$mysqli->query("SELECT * FROM usuariocategoria 
+            WHERE idUsuario = '$idUsuario' AND idCategoria = '$idCategoria' ");
+
+        if (mysqli_num_rows($usuarioCategoria) == 0 ) {
+            return false;
+        }else{
+            return true;
+        }
+
+        $resultado->close();
+    }
+
+
+    /********************** 
+    ** Update usuario categoria **
+    **********************/
+    public function updateUsuarioCategoria($id, $categoria)
+    {
+
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        //borra todas las relaciones
+        $allCategorias=$mysqli->query("SELECT * FROM categoria ");
+        if ($allCategorias) {
+            while($row = $allCategorias->fetch_assoc()){
+                $idCategoria = $row['id'];
+                $eliminaCategoria=$mysqli->query("DELETE FROM usuariocategoria 
+                    WHERE idUsuario = '$id' AND idCategoria = '$idCategoria' ");
+            }
+        }
+
+        //busca categoria, y si la categoria recibida no esta relacionada con el usuario la inserta
+        foreach ($categoria as $cat) {
+            $newusuarioCategoria=$mysqli->query("INSERT INTO usuariocategoria 
+                (idUsuario, idCategoria) VALUES ('$id','$cat')");
+        }
+
+        if (!$newusuarioCategoria) {
+            die('Invalid query: '. mysql_error());
+        }else{
+            return $mensajeOk = 'Datos actualizados correctamente';
+        }
+
+        $newusuarioCategoria->close();
+    }
+
+
 
 }

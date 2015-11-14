@@ -55,7 +55,7 @@ class CategoriasBack
         $mysqli = $db->connect();
 
         $categoriaNoticia=$mysqli->query("SELECT * FROM categorianoticia 
-                        WHERE idNoticia = '$idNoticia' AND idCategoria = '$idCategoria' ");
+            WHERE idNoticia = '$idNoticia' AND idCategoria = '$idCategoria' ");
 
         if (mysqli_num_rows($categoriaNoticia) == 0 ) {
             return false;

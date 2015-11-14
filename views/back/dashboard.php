@@ -22,7 +22,7 @@
 							  		<i class="icon glyphicon glyphicon-list-alt"></i> 
 							  	</div>
 						    	<hr>
-						    	<div class="title">Noticias</div>
+						    	<div class="title text-uppercase">Noticias</div>
 								<div class="count"><?php echo $countNoticias ;?></div>	
 						  	</div>
 						</div>
@@ -37,7 +37,7 @@
 							  		<i class="icon glyphicon glyphicon-tags"></i>
 							  	</div>
 						    	<hr>
-						      	<div class="title">Categorias</div>
+						      	<div class="title  text-uppercase">Categorias</div>
 								<div class="count"><?php echo $countCategorias ;?></div>	
 						    </div>
 						</div>
@@ -52,7 +52,7 @@
 							  		<i class="icon glyphicon glyphicon-user"></i>
 							  	</div>
 							  	<hr>
-								<div class="title">Usuarios</div>	
+								<div class="title  text-uppercase">Usuarios</div>	
 								<div class="count"><?php echo $countUsuarios ;?></div>		
 							</div>		
 						</div>

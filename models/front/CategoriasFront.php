@@ -48,8 +48,8 @@ class CategoriasFront
         }
 
         $resultado=$mysqli->query(
-            "SELECT * FROM `categoria` c, `usuariocategoria` uc, `noticia`n WHERE uc.idUsuario = '$id ' 
-            and uc.idCategoria = n.id and uc.idCategoria = c.id");
+            "SELECT * FROM `categoria` c, `usuariocategoria` uc WHERE uc.idUsuario = '$id ' 
+            and uc.idCategoria = c.id");
 
         $array = array();
 

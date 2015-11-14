@@ -32,7 +32,7 @@ class FrontController
     **************************/
     function noticia()
     {
-        //Llamada a la vista y utiliza variable $noticiasGenerales y $usuarioCategoria
+        //Llamada a la vista 
         require 'views/front/noticia.php';
 
     }
@@ -72,6 +72,7 @@ class FrontController
 
         $usuarioDatos = $UsuarioFront->usuarioDatos($_SESSION['usuario']);
         while($row = $usuarioDatos->fetch_assoc()){
+            $id = $row['id'];
             $email = $row['email'];
             $nombre = $row['nombre'];
             $apellido = $row['apellido'];
@@ -79,7 +80,7 @@ class FrontController
 
         $usuarioCategoria = $CategoriasFront->usuarioCategoria($_SESSION['usuario']);
 
-        //Llamada a la vista y envía las variable $email, $nombre, $apellido y $usuarioCategoria
+        //Llamada a la vista y envía las variable $id, $email, $nombre, $apellido y $usuarioCategoria
         require 'views/front/perfil.php';
     }
 	

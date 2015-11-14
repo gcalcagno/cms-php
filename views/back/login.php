@@ -19,12 +19,18 @@
         if (isset($_POST["admin"]) && !empty($_POST["admin"])) {
 		    $usuario = $_POST["admin"];   
 			$password = $_POST["password_usuario"];
-			$resultado = $UsuarioBack->login($usuario, $password);
+			$mensaje = $UsuarioBack->login($usuario, $password);
 		}
 	
 		?>
 
         <div class="form-admin">
+       		<?php if(isset($mensaje['error1'])){?>
+				<div class="alert alert-danger"><?php echo $mensaje['error1'] ;?></div>
+			<?php }?>
+			<?php if(isset($mensaje['error2'])){?>
+				<div class="alert alert-danger"><?php echo $mensaje['error2'] ;?></div>
+			<?php }?>
             <div class="subtitulo titulo-gris"> 
                 <span class="icon glyphicon glyphicon-lock"></span>
                 <hr>
