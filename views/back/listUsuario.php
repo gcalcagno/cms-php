@@ -2,7 +2,7 @@
 	include 'sesionValida.php';
 ?>
 
-<?php include 'views/back/layout.php' ?> 
+<?php include 'views/back/layout.php'; ?> 
 
 <?php startblock('contenido') ?> 
 

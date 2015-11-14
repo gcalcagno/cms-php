@@ -5,7 +5,6 @@
 
 class FuncionesConfig
 {
-
     /* 
     ** Limitar textos
     */
@@ -19,3 +18,5 @@ class FuncionesConfig
     }
 
 }
+
+?>
