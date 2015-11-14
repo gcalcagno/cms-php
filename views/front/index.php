@@ -1,6 +1,6 @@
 <?php include 'views/front/layout.php' ?> 
 
-<?php startblock('contenido') ?> 
+<?php startblock("contenido") ?> 
 
 	<?php 
 		$FuncionesConfig = new FuncionesConfig();
