@@ -1,6 +1,6 @@
 <div class="head col-xs-12 col-sm-12 col-md-12 ol-lg-12" >
 
-    <?php if(isset($_SESSION['usuario'])){
+    <?php if(isset($_SESSION['admin'])){
 
       $uri = $_SERVER['REQUEST_URI'];
       $parte=explode ('/',$uri);

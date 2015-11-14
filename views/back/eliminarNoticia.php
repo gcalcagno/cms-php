@@ -25,8 +25,8 @@
 
 		    	// Recibimos por POST los datos procedentes del formulario   
 				$id = $_POST["id"]; 
-				$CategoriasBack = new CategoriasBack();
-				$mensaje = $CategoriasBack->eliminarCategoria($id);
+				$NoticiasBack = new NoticiasBack();
+				$mensaje = $NoticiasBack->eliminarNoticia($id);
 	    
 	    } 
 
@@ -36,14 +36,13 @@
 <?php include dirname(__FILE__).'/layout.php' ?> 
 
 
-<?php startblock('contenido') ?> 
-
+<?php startblock('contenido')?> 
 	<?php
 		if (isset($_GET["id"])){
-		$CategoriasBack = new CategoriasBack();
-		$categoria = $CategoriasBack->datos($_GET["id"]);
-		while($row = $categoria->fetch_assoc()){
-			$nombreCat = $row['nombre'];
+		$NoticiasBack = new NoticiasBack();
+		$noticia = $NoticiasBack->datos($_GET["id"]);
+		while($row = $noticia->fetch_assoc()){
+			$nombreNoticia = $row['titulo'];
 		}
 	?>
 	<div >  
@@ -52,7 +51,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title fa fa-flag-o red"></i><strong>Eliminar Categoria</strong>
-					<a href="/admin-categoria"> 
+					<a href="/admin-noticia"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
 					</a>
 				</h3>
@@ -68,10 +67,10 @@
 					<?php if(isset( $mensaje['ok'] )){?>
 						<div class="alert alert-success"><?php echo $mensaje['ok'] ;?></div>
 					<?php }else{?>
-						<?php if(isset( $nombreCat)){?>
+						<?php if(isset( $nombreNoticia)){?>
 						<form enctype="multipart/form-data" role="form" action="" method="POST" >
 						 	<div class="form-group">
-							    <label for="email">¿Esta seguro que quiere eliminar la categoria: " <?php echo $nombreCat; ?> "</label>
+							    <label for="email">¿Esta seguro que quiere eliminar la noticia: " <?php echo $nombreNoticia; ?> "</label>
 							   <input value="<?php echo $_GET["id"];?>" hidden type="text" class="form-control" name="id">
 							</div>
 							
@@ -79,7 +78,7 @@
 						</form>
 						<?php 
 							}else{
-								echo 'Categoria no encontrada';
+								echo 'Noticia no encontrada';
 						}?>
 
 					<?php }?>

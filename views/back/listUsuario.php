@@ -1,10 +1,5 @@
 <?php
-	//validamos si se inició sesión
-	if(!isset($_SESSION['usuario'])) 
-	{
-	  header('Location: index.php'); 
-	  exit();
-	}
+	include 'sesionValida.php';
 ?>
 
 <?php include 'views/back/layout.php' ?> 

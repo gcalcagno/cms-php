@@ -1,3 +1,12 @@
+<?php
+	//validamos si se inició sesión
+	if(isset($_SESSION['admin'])) 
+	{
+		header('Location: /admin-dashboard'); 
+	  	exit();
+	}
+?>
+
 <?php include 'views/back/layout-login.php' ?> 
 
 

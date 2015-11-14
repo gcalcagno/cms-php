@@ -1,15 +1,9 @@
 <?php session_start(); ?>
 
 <?php
-	//validamos si se inició sesión
-	if(!isset($_SESSION['usuario'])) 
-	{
-	  header('Location: index.php'); 
-	  exit();
-	}
+	include 'sesionValida.php';
 
 	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
-
 ?>
 
 <?php

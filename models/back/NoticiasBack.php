@@ -8,6 +8,46 @@ class NoticiasBack
 {
 
     /********************** 
+    ** Listado Noticias **
+    **********************/
+    public function listado()
+    {
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $resultado=$mysqli->query("SELECT * FROM noticia WHERE activo = '1'");
+
+        if (!$resultado) {
+            die('Invalid query: '. mysql_error());
+        }
+
+        return $resultado;
+
+        $resultado->close();
+    }
+
+
+    /********************** 
+    ** Datos Noticia **
+    **********************/
+    public function datos($id)
+    {
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $resultado=$mysqli->query("SELECT * FROM noticia WHERE  id ='$id' ");
+
+        if (!$resultado) {
+            die('Invalid query: '. mysql_error());
+        }
+
+        return $resultado;
+
+        $resultado->close();
+    }
+
+
+    /********************** 
     ** Carga de Noticias **
     **********************/
     public function cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria)
@@ -15,41 +55,35 @@ class NoticiasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //inserta noticia
         $resultado=$mysqli->query("INSERT INTO noticia (titulo,texto, descarga,fecha) VALUES ('$titulo','$texto','$descarga','$fecha')");
 
-        //busca id noticia
         $noticia=$mysqli->query("SELECT * FROM noticia WHERE titulo = '$titulo'");
 
         if ($noticia) {
             if($row = $noticia->fetch_assoc()){
-                echo '<br>'.$row['id'].'<br>';
                 $idNoticia = $row['id'];
             }
         }else{
             echo '<br>NO HAY RESULTADOS<br>';
         }
 
-        //inserta imagen noticia
         if(!empty($imagen)){
             $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
-
         }
         
-        //inserta categoria noticia
         foreach ($categoria as $cat) {
             $categoria=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
         }
 
-        //valida
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
         }else{
             return $mensajeOk = 'Datos ingresados correctamente';
         }
 
-        //$resultado->close();
+        $resultado->close();
     }
+
 
 
     /********************** 
@@ -61,11 +95,9 @@ class NoticiasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //actualiza titulo y texto
         $resultado=$mysqli->query("UPDATE noticia
         SET titulo ='$titulo', texto = '$texto' WHERE id='$id'");
 
-        //busca id noticia
         $noticia=$mysqli->query("SELECT * FROM noticia WHERE titulo = '$titulo'");
         if ($noticia) {
             if($row = $noticia->fetch_assoc()){
@@ -77,9 +109,7 @@ class NoticiasBack
 
         //si se envio una imagen la inserta
         if(!empty($imagen)){
-            //elimina imagenes
-            $eliminaCategoria=$mysqli->query("DELETE FROM imagennoticia WHERE idNoticia = '$idNoticia' ");
-            //carga nueva imagen
+            $eliminaImagen=$mysqli->query("DELETE FROM imagennoticia WHERE idNoticia = '$idNoticia' ");
             $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
         }
 
@@ -87,7 +117,6 @@ class NoticiasBack
         $allCategorias=$mysqli->query("SELECT * FROM categoria ");
         if ($allCategorias) {
             while($row = $allCategorias->fetch_assoc()){
-               // echo '<br>'.$row['id'].'<br>';
                 $idCategoria = $row['id'];
                 $eliminaCategoria=$mysqli->query("DELETE FROM categoriaNoticia WHERE idNoticia = '$idNoticia' AND idCategoria = '$idCategoria' ");
             }
@@ -98,45 +127,26 @@ class NoticiasBack
             $newCategoriaNoticia=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
         }
 
-        //valida
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
         }else{
             return $mensajeOk = 'Datos actualizados correctamente';
         }
 
-        //$resultado->close();
+        $resultado->close();
     }
+
+    
 
     /********************** 
-    ** Listado Noticias **
+    ** Editar Noticia **
     **********************/
-    public function listado()
-    {
-        $db = new DatabaseConfig();
-        $mysqli = $db->connect();
-
-        //busca id noticia
-        $resultado=$mysqli->query("SELECT * FROM noticia ");
-
-        //valida
-        if (!$resultado) {
-            die('Invalid query: '. mysql_error());
-        }
-
-       return $resultado;
-
-        //$resultado->close();
-    }
-
-
      public function editarNoticia($id)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
+
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query("SELECT * FROM noticia  WHERE id = $id");
         if(!$resultado){
             echo 'Noticia no encontrada';
@@ -148,4 +158,36 @@ class NoticiasBack
 
     }
 
+
+    /********************** 
+    ** Eliminar Noticia **
+    **********************/
+    public function eliminarNoticia($id)
+    {
+        
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $noticia=$mysqli->query("SELECT * FROM noticia WHERE id ='$id' ");
+
+        while($row = $noticia->fetch_assoc()){
+            $nombreNoticia = $row['titulo'];
+        }
+
+        $resultado=$mysqli->query("UPDATE noticia
+        SET activo ='0' WHERE id='$id'");
+
+        if (!$resultado) {
+            $mensajes= array( "error" => "Ocurrió un error, intente nuevamente mas tarde."  );
+        }else{
+           $mensajes= array( "ok" => "La noticia <strong>$nombreNoticia</strong> se ha eliminado correctamente."  );
+        }
+
+        return $mensajes;
+
+        $resultado->close();
+    }
+
+
+    
 }

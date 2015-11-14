@@ -79,7 +79,7 @@
 
 			//default, evita error 404, y si ingresa alguna otra url
 			default:
-				echo 'error';
+				echo 'ERROR 404';
 			}
 
 	?>

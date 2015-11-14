@@ -15,17 +15,15 @@ class UsuarioBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //busca id noticia
         $resultado=$mysqli->query("SELECT * FROM usuarios ");
 
-        //valida
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
         }
 
-       return $resultado;
+        return $resultado;
 
-        //$resultado->close();
+        $resultado->close();
     }
 
 
@@ -38,16 +36,14 @@ class UsuarioBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query("SELECT * FROM usuarios WHERE email = '$usuario' AND tipo = 'admin'");
-
 
         //valida usuario
         if($row = $resultado->fetch_assoc()){
             //valida password
             if($row["password"] == $password){
-                //almacena datos de usuario en una sesión
                 $_SESSION['usuario'] = $usuario;  
+                 $_SESSION['admin'] = $usuario;  
                 header("Location: admin-dashboard");  
                 exit();
                 echo 'usuario logueado';
@@ -58,20 +54,12 @@ class UsuarioBack
             echo "El nombre de usuario es incorrecto!";          
         }
 
-       return $resultado;
+        return $resultado;
 
         $resultado->close();
    
     }
 
-
-    /********** 
-    ** validaUsuario **
-    **********/
-    public function validaUsuario()
-    {
-       
-    }
 
 
 }

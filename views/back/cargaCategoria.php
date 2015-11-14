@@ -1,12 +1,6 @@
 <?php
-	//validamos si se inició sesión
-	if(!isset($_SESSION['usuario'])) 
-	{
-	  header('Location: index.php'); 
-	  exit();
-	}
+	include 'sesionValida.php';
 ?>
-
 <?php
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		

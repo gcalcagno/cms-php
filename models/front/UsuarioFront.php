@@ -11,18 +11,15 @@ class UsuarioFront
     **********/
     public function login($usuario, $password)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query("SELECT * FROM usuarios WHERE email = '$usuario'");
 
         //valida usuario
         if($row = $resultado->fetch_assoc()){
             //valida password
             if($row["password"] == $password){
-                //almacena datos de usuario en una sesión
                 $_SESSION['usuario'] = $usuario;
                 header("Location: home");  
                 echo 'usuario logueado';
@@ -46,11 +43,9 @@ class UsuarioFront
     public function registro($email, $password, $nombre, $apellido)
     {
 
-        //clase Database utiliza el método connect() para conectarse a la base de datos
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query('SELECT * FROM usuarios');
         $verificar_usuario = 0;
 
@@ -67,7 +62,6 @@ class UsuarioFront
             ('$email','$password','$nombre','$apellido','user')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
             $resultado=$mysqli->query($sql);
             echo 'Usted se ha registrado correctamente.';
-        //si el usuario ya existe muestra un mensaje
         } else { 
             echo 'Este usuario ya ha sido registrado anteriormente.'; 
         } 
@@ -83,17 +77,15 @@ class UsuarioFront
     ******************/
     public function usuarioDatos($usuario)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
+
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta id usuario
         $idUser=$mysqli->query("SELECT id FROM usuarios WHERE email = '$usuario'");
         while ($obj = $idUser->fetch_object()) {
             $id = $obj->id;
         }
 
-        //consulta
         $resultado=$mysqli->query("SELECT * FROM usuarios WHERE  id = '$id'");
         if(!$resultado){
             die('Hubo un error en la consulta [' . $db->error . ']');
@@ -104,8 +96,6 @@ class UsuarioFront
         $resultado->close();
 
     }
-
-
 
 
 }

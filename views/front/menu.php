@@ -6,7 +6,7 @@
       $parte=explode ('/',$uri);
       $i= $parte[1];
 
-      if(!isset($_SESSION['usuario'])){
+      if(!isset($_SESSION['admin'])){
         //session_start();
     }
 

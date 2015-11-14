@@ -83,7 +83,13 @@
 						$CategoriasFront = new CategoriasFront();
 
 						//listado de post
-						$articulosRecientes = $NoticiasFront->noticiasRecientes();
+						if(!isset($_SESSION['usuario'])){
+							$articulosRecientes = $NoticiasFront->noticiasRecientes('generales');
+						}else{
+							$articulosRecientes = $NoticiasFront->noticiasRecientes('all');
+						}
+						
+
 			  			while($row = $articulosRecientes->fetch_assoc()){
 				  			$imagen = $NoticiasFront->imagenPortadaNoticia($row['id']);
 				  			$categoria = $CategoriasFront->categoriaNoticia($row['id']);

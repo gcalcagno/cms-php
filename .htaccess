@@ -21,3 +21,4 @@ RewriteRule ^admin-usuario/?$ index.php
 RewriteRule ^noticia/([^/]+) /views/front/noticia.php?id=$1 [L]
 RewriteRule ^editarNoticia/([^/]+) /views/back/editarNoticia.php?id=$1 [L]
 RewriteRule ^eliminarCategoria/([^/]+) /views/back/eliminarCategoria.php?id=$1 [L]
+RewriteRule ^eliminarNoticia/([^/]+) /views/back/eliminarNoticia.php?id=$1 [L]

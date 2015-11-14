@@ -2,6 +2,7 @@
 
 //CONECTA BASE DE DATOS
 require_once  $_SERVER['DOCUMENT_ROOT']."/config/core.php";
+//require_once "config/core.php";
 
 class NoticiasFront
 {
@@ -10,15 +11,13 @@ class NoticiasFront
     ************************/
     public function listadoNoticia($categoria)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query(
             "SELECT * FROM `categoria` c, `categorianoticia`cn, `noticia`n 
             WHERE c.nombre = '$categoria' and cn.idNoticia = n.id 
-            and cn.idCategoria = c.id ORDER BY n.id DESC");
+            and cn.idCategoria = c.id and n.activo = '1' ORDER BY n.id DESC");
        
         if(!$resultado){
             die('Hubo un error en la consulta [' . $db->error . ']');
@@ -36,11 +35,10 @@ class NoticiasFront
     *********************/
     public function imagenPortadaNoticia($idNoticia)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
+
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
         $resultado=$mysqli->query("SELECT * FROM imagennoticia WHERE idNoticia = '$idNoticia'");
         
         if(mysqli_num_rows($resultado) == 0 ){
@@ -58,14 +56,22 @@ class NoticiasFront
     }
 
 
-    public function noticiasRecientes()
+    public function noticiasRecientes($categoria)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
+
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
-        $resultado=$mysqli->query("SELECT * FROM noticia  ORDER BY id DESC LIMIT 5");
+        if($categoria == 'all'){
+            $resultado=$mysqli->query(
+            "SELECT * FROM noticia WHERE activo = '1' ORDER BY id DESC LIMIT 5");
+        }else{
+            $resultado=$mysqli->query(
+            "SELECT * FROM `categoria` c, `categorianoticia`cn, `noticia`n 
+            WHERE c.nombre = '$categoria' and cn.idNoticia = n.id 
+            and cn.idCategoria = c.id and n.activo = '1' ORDER BY n.id DESC LIMIT 5");
+        }
+
         if(!$resultado){
             die('Hubo un error en la consulta [' . $db->error . ']');
         }
@@ -79,15 +85,14 @@ class NoticiasFront
 
     public function noticia($id)
     {
-        //clase Database utiliza el método connect() para conectarse a la base de datos
+
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        //consulta
-        $resultado=$mysqli->query("SELECT * FROM noticia  WHERE id = $id");
+
+        $resultado=$mysqli->query("SELECT * FROM noticia  WHERE id = $id AND activo = '1' ");
         
         if(!$resultado || mysqli_num_rows($resultado) == 0){
-            //die('Hubo un error en la consulta [' . $db->error . ']');
             echo 'Noticia no encontrada';
         }
 
@@ -96,10 +101,5 @@ class NoticiasFront
         $resultado->close();
 
     }
-
-
-   
-
-
 
 }
