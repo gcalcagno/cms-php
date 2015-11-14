@@ -44,7 +44,7 @@
 							<tr>
 								<td ><?php echo $row['fecha']; ?></td>
 								<td ><?php echo $row['titulo']; ?></td>
-								<td ><?php $FuncionesConfig->limitarTextos($row['texto'], '150'); ?>
+								<td ><?php $FuncionesConfig->limitarTextos($row['texto'], 150); ?>
 								</td>
 								<!--<td ><?php //echo $row['descarga']; ?></td>-->
 								<td class="center">
