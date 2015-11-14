@@ -10,11 +10,17 @@ class FuncionesConfig
     */
     public function limitarTextos($valor, $limite)
     {
-        echo substr($valor, 0, $limite);
+        $texto = mb_substr($valor, 0, $limite, 'UTF-8');
+        $logn = strlen($valor);
+        if($logn >= $limite){
+            echo $logn.' ...';
+        }
+
+        /*echo substr($valor, 0, $limite);
          $logn = strlen($valor);
         if($logn >= $limite){
             echo ' ...';
-        }
+        }*/
     }
 
 }
