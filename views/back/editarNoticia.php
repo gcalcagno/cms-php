@@ -2,7 +2,6 @@
 
 <?php
 	include 'sesionValida.php';
-
 	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 ?>
 
@@ -11,6 +10,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
+		$fecha = date("Y-m-d"); 
 		
 		function validaRequerido($valor){
 	        if(empty($valor)){
@@ -39,29 +39,17 @@
 		    }
 
 		    if (empty($errores)) {
-
-		    	// Recibimos por POST los datos procedentes del formulario   
-				$texto = $_POST["texto"]; 
-				//$descarga = $_POST["descarga"];  
-				$fecha = date("Y-m-d"); 
-				$categoria = $_POST["categoria"]; 
-			
 				$target_path =  $_SERVER['DOCUMENT_ROOT']."/uploads/";
 				$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
-					//echo "El archivo ". basename( $_FILES['uploadedfile']['name']). " ha sido subido";
 					$imagen =  $_FILES['uploadedfile']['name'];
-				} else{
-					//echo "Ha ocurrido un error, trate de nuevo!";
-				}
+				} 
 				$imagen =  $_FILES['uploadedfile']['name'];
-				//Llamamos al metodo para insertar los datos
 				$NoticiasBack = new NoticiasBack();
 				$mensajeOk = $NoticiasBack->updateNoticia ($_GET["id"], $titulo, $texto, $descarga, $fecha, $imagen, $categoria);
 			}
 	    
 	    } 
-
 
 	?>
 
@@ -104,35 +92,33 @@
 						<div class="alert alert-danger"><?php echo $errorCategoria ;?></div>
 					<?php }?>
 					<form enctype="multipart/form-data" role="form" action="" method="POST" >
-						  <div class="form-group">
+						<div class="form-group">
 						    <label for="titulo">Título</label>
 						    <input value="<?php echo $row['titulo'];?>" type="text" class="form-control" name="titulo">
-						  </div>
-						  <?php if(isset($errorTitulo)){?>
+						</div>
+						<?php if(isset($errorTitulo)){?>
 							<div class="alert alert-danger"><?php echo $errorTitulo ;?></div>
-							<?php }?>
-						  <div class="form-group">
+						<?php }?>
+						<div class="form-group">
 						    <label for="pwd">Texto</label>
 						    <textarea class="form-control" name="texto"><?php echo $row['texto'];?></textarea>
-						  </div>
-						  <?php if(isset($errorTexto)){?>
+						</div>
+						<?php if(isset($errorTexto)){?>
 							<div class="alert alert-danger"><?php echo $errorTexto ;?></div>
-							<?php }?>
+						<?php }?>
 
 						  <!--<div class="form-group">
 						    <label for="descarga">Link de Descarga</label>
-						    <input value="<?php echo $row['descarga'];?>"type="text" class="form-control" name="descarga">
+						    <input value="<?php //echo $row['descarga'];?>"type="text" class="form-control" name="descarga">
 						  </div>-->
 
-						  <div class="form-group">
+						<div class="form-group">
 						    <label for="uploadedfile">Img Portada</label>
-						    <div class="imagen-post" style="background-image: url(/uploads/<?php echo $imagen; ?>)">
-								
-									</div>
+						    <div class="imagen-post" style="background-image: url(/uploads/<?php echo $imagen; ?>)"></div>
 						    <input class="form-control " name="uploadedfile" type="file" />
-						  </div>
+						</div>
 
-						  <div class="form-group">
+						<div class="form-group">
 						    <label for="categoria">Categorías</label><br>
 							<?php $CategoriasBack = new CategoriasBack();
 
@@ -149,16 +135,14 @@
 											echo 'checked';
 										}
 									?>
-				
 						    	>
 
 						    <?php } ?>
 
-						    
 						  </div>
 
 						  <button type="submit" class="btn  btn-naranja" id="btnLogA">Guardar</button>
-						</form>
+					</form>
 				</div>
 
 			</div>	
@@ -166,9 +150,10 @@
 		</div>
 
 	</div>
-<?php 
-		}
-	}
-?>
 	
-	<?php endblock() ?> 
+	<?php 
+			}
+		}
+	?>
+	
+<?php endblock() ?> 

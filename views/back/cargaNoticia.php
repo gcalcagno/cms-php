@@ -6,6 +6,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
+		$fecha = date("Y-m-d"); 
 
 		function validaRequerido($valor){
 	        if(empty($valor)){
@@ -34,13 +35,6 @@
 		    }
 
 		    if (empty($errores)) {
-
-		    	// Recibimos por POST los datos procedentes del formulario   
-				$texto = $_POST["texto"]; 
-				//$descarga = $_POST["descarga"];  
-				$fecha = date("Y-m-d"); 
-				$categoria = $_POST["categoria"]; 
-
 				$target_path = "uploads/";
 				$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
 				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
@@ -48,7 +42,7 @@
 					$imagen =  $_FILES['uploadedfile']['name'];
 				}
 				$imagen =  $_FILES['uploadedfile']['name'];
-				//Llamamos al metodo para insertar los datos
+
 				$NoticiasBack = new NoticiasBack();
 				$mensajeOk = $NoticiasBack->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
 			}
@@ -103,7 +97,6 @@
 						    <textarea class="form-control" name="texto"><?php if (isset($_POST['texto'])){echo $_POST['texto']; }?></textarea>
 						  </div>
 						  
-
 						  <!--<div class="form-group">
 						    <label for="email">Lnk de Descarga</label>
 						    <input type="text" class="form-control" name="descarga">
@@ -137,8 +130,5 @@
 		</div>
 
 	</div>
-
-
-
 
 <?php endblock() ?> 

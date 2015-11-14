@@ -1,5 +1,4 @@
 <?php
-
 	//validamos si se inició sesión
 	if(!isset($_SESSION['admin'])) 
 	{

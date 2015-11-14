@@ -7,7 +7,6 @@
       $i= $parte[1];
 
       if(!isset($_SESSION['admin'])){
-        //session_start();
     }
 
     ?>
@@ -15,8 +14,6 @@
     <!-- menu-->    
 
     <nav class="menu navbar navbar-inverse" role="navigation">
-      <!-- El logotipo y el icono que despliega el menú se agrupan
-           para mostrarlos mejor en los dispositivos móviles -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
                 data-target=".navbar-ex1-collapse">
@@ -30,8 +27,6 @@
         </a>
       </div>
      
-      <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-           otro elemento que se pueda ocultar al minimizar la barra -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         
         <?php if(isset($_SESSION['usuario'])){ ?>
@@ -64,7 +59,7 @@
                 <i class="icon-menu glyphicon glyphicon-list-alt"></i>Noticias
             </a>
           </li>
-          <!--<li class="text-uppercase <?php if($i == 'categorias'){echo 'active';} ?>">
+          <!--<li class="text-uppercase <?php //if($i == 'categorias'){echo 'active';} ?>">
             <a href="categorias">
                 <i class="icon-menu icon glyphicon glyphicon-tags"></i>Categorias
             </a>

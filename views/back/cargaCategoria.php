@@ -1,37 +1,31 @@
 <?php
 	include 'sesionValida.php';
+
+	$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+	
+	function validaRequerido($valor){
+        if(empty($valor)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+	//Si recibe parametros post
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    	if (!validaRequerido($nombre)) {
+	        $errores[] = 'El campo nombre es obligatorio.';
+	        $errorNombre ='El campo nombre es obligatorio.';
+	    }
+
+	    if (empty($errores)) {
+			$CategoriasBack = new CategoriasBack();
+			$mensaje = $CategoriasBack->cargaCategoria($nombre);
+		}
+    }
+
 ?>
-<?php
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-		
-		function validaRequerido($valor){
-	        if(empty($valor)){
-	            return false;
-	        }else{
-	            return true;
-	        }
-	    }
-
-		//Si recibe parametros post
-	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-	    	if (!validaRequerido($nombre)) {
-		        $errores[] = 'El campo nombre es obligatorio.';
-		        $errorNombre ='El campo nombre es obligatorio.';
-		    }
-
-		    if (empty($errores)) {
-
-		    	// Recibimos por POST los datos procedentes del formulario   
-				$nombre = $_POST["nombre"]; 
-				$CategoriasBack = new CategoriasBack();
-				$mensaje = $CategoriasBack->cargaCategoria($nombre);
-			}
-	    
-	    }
-
-
-	?>
 
 <?php include 'views/back/layout.php' ?> 
 
@@ -77,10 +71,6 @@
 		</div>
 
 	</div>
-
-
-
-
 
 
 <?php endblock() ?> 

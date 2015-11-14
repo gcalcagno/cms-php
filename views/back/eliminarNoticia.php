@@ -2,36 +2,35 @@
 
 <?php
 	include 'sesionValida.php';
-
 	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 ?>
 
 <?php
 
-		$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
-		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
-		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
-		
-		function validaRequerido($valor){
-	        if(empty($valor)){
-	            return false;
-	        }else{
-	            return true;
-	        }
-	    }
+	$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
+	$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
+	$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
+	
+	function validaRequerido($valor){
+        if(empty($valor)){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
-		//Si recibe parametros post
-	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	//Si recibe parametros post
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-		    	// Recibimos por POST los datos procedentes del formulario   
-				$id = $_POST["id"]; 
-				$NoticiasBack = new NoticiasBack();
-				$mensaje = $NoticiasBack->eliminarNoticia($id);
-	    
-	    } 
+	    	// Recibimos por POST los datos procedentes del formulario   
+			$id = $_POST["id"]; 
+			$NoticiasBack = new NoticiasBack();
+			$mensaje = $NoticiasBack->eliminarNoticia($id);
+    
+    } 
 
 
-	?>
+?>
 
 <?php include dirname(__FILE__).'/layout.php' ?> 
 
@@ -89,8 +88,9 @@
 		</div>
 
 	</div>
-<?php 
-	}
-?>
+
+	<?php 
+		}
+	?>
 	
-	<?php endblock() ?> 
+<?php endblock() ?> 

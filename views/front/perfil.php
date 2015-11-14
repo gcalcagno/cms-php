@@ -10,16 +10,7 @@
 	}
 ?>
 
-
 <?php startblock('contenido') ?> 
-
-
-<?php //instancia clases
-
-	//listado de noticias
-	//$resultado = $back->listado('categoria');
-	//$resultado = $front->usuarioCategoria($_SESSION['usuario']);
-?>
 
 	<!-- MIS DATOS -->
    	<div class="tablas">  
