@@ -16,8 +16,8 @@ class FuncionesConfig
             echo $logn.' ...';
         }*/
 
-        echo substr($valor, 0, $limite);
-         $logn = strlen($valor);
+        echo  mb_substr($valor, 0, $limite, 'UTF-8');
+        $logn = strlen($valor);
         if($logn >= $limite){
             echo ' ...';
         }

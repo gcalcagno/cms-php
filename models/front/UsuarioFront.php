@@ -128,14 +128,7 @@ class UsuarioFront
         $mysqli = $db->connect();
 
         //borra todas las relaciones
-        $allCategorias=$mysqli->query("SELECT * FROM categoria ");
-        if ($allCategorias) {
-            while($row = $allCategorias->fetch_assoc()){
-                $idCategoria = $row['id'];
-                $eliminaCategoria=$mysqli->query("DELETE FROM usuariocategoria 
-                    WHERE idUsuario = '$id' AND idCategoria = '$idCategoria' ");
-            }
-        }
+        $mysqli->query("DELETE FROM usuariocategoria WHERE idUsuario = '$id' ");
 
         //busca categoria, y si la categoria recibida no esta relacionada con el usuario la inserta
         foreach ($categoria as $cat) {
