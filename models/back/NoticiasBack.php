@@ -106,7 +106,7 @@ class NoticiasBack
         }
 
         //borra todas las relaciones
-        $mysqli->query("DELETE FROM categoriaNoticia WHERE idNoticia = '$id' ");
+        $mysqli->query("DELETE FROM categorianoticia WHERE idNoticia = '$id' ");
         
         //busca categoria, y si la categoria recibida no esta relacionada con el usuario la inserta
         foreach ($categoria as $cat) {
