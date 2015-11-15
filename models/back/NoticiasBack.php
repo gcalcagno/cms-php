@@ -99,33 +99,18 @@ class NoticiasBack
         $resultado=$mysqli->query("UPDATE noticia
         SET titulo ='$titulo', texto = '$texto' WHERE id='$id'");
 
-        $noticia=$mysqli->query("SELECT * FROM noticia WHERE titulo = '$titulo'");
-        if ($noticia) {
-            if($row = $noticia->fetch_assoc()){
-                $idNoticia = $row['id'];
-            }
-        }else{
-            echo '<br>La noticia no existe<br>';
-        }
-
         //si se envio una imagen la inserta
         if(!empty($imagen)){
-            $eliminaImagen=$mysqli->query("DELETE FROM imagennoticia WHERE idNoticia = '$idNoticia' ");
-            $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$idNoticia')");
+            $eliminaImagen=$mysqli->query("DELETE FROM imagennoticia WHERE idNoticia = '$id' ");
+            $imagen=$mysqli->query("INSERT INTO imagennoticia (nombre,idNoticia) VALUES ('$imagen','$id')");
         }
 
         //borra todas las relaciones
-        $allCategorias=$mysqli->query("SELECT * FROM categoria ");
-        if ($allCategorias) {
-            while($row = $allCategorias->fetch_assoc()){
-                $idCategoria = $row['id'];
-                $eliminaCategoria=$mysqli->query("DELETE FROM categoriaNoticia WHERE idNoticia = '$idNoticia' AND idCategoria = '$idCategoria' ");
-            }
-        }
-
+        $mysqli->query("DELETE FROM categoriaNoticia WHERE idNoticia = '$id' ");
+        
         //busca categoria, y si la categoria recibida no esta relacionada con el usuario la inserta
         foreach ($categoria as $cat) {
-            $newCategoriaNoticia=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$idNoticia')");
+            $newCategoriaNoticia=$mysqli->query("INSERT INTO categorianoticia (idCategoria,idNoticia) VALUES ('$cat','$id')");
         }
 
         if (!$resultado) {

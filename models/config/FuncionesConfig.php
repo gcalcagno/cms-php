@@ -16,9 +16,8 @@ class FuncionesConfig
             echo $logn.' ...';
         }*/
 
-        echo utf8_decode (substr($valor, 0, $limite));
+        echo substr($valor, 0, $limite);
          $logn = strlen($valor);
-
         if($logn >= $limite){
             echo ' ...';
         }
