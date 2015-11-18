@@ -68,7 +68,8 @@
 			            <form role="form" class="form" action="" method="post">
 						  	<div class="form-group">
 						    	<label>Email</label>
-						    	<input name="email" type="email" class="form-control"  >
+						    	<input name="email" type="email" class="form-control"
+						    	value="<?php if (isset($_POST['email'])){echo $_POST['email']; }?>">
 						  	</div>
 						  	<div class="form-group">
 						    	<label>Password</label>
