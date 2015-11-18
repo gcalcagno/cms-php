@@ -45,22 +45,36 @@
 					$parte=explode ('/',$uri);
 					$i= $parte[1];
 
+					if(isset($_POST['enviar']))
+			        { 
+			            //valida campos vacíos
+			            if(
+			              $_POST['admin'] == '' ||
+			              $_POST['password_usuario'] == '' 
+			              ) { 
+			              	$errorRequired ='Por favor llene todos los campos. ';
+			            } 
+			        }
+
 					if(!isset($_SESSION['usuario']) && $i != 'registro'){
 					?>
 					<p class="subtitulo-general text-uppercase">Ingresá para ver mas categorías y filtrar según tus preferencias.</p>
 			           	
 			        <div class="login">
 			        	<h3 class="text-uppercase subtitulo-default">Login</h3>
+			        	<?php if(isset($errorRequired)){?>
+							<div class="alert alert-danger"><?php echo $errorRequired ;?></div>
+						<?php }?>
 			            <form role="form" class="form" action="" method="post">
 						  	<div class="form-group">
 						    	<label>Email</label>
-						    	<input name="email" type="email" class="form-control" required >
+						    	<input name="email" type="email" class="form-control"  >
 						  	</div>
 						  	<div class="form-group">
 						    	<label>Password</label>
-						   		<input name="password_usuario" type="password" class="form-control" required >
+						   		<input name="password_usuario" type="password" class="form-control"  >
 						 	</div>
-						 	<button name="iniciar" type="submit" class="btn enviar text-uppercase">Ingresar</button>
+						 	<button name="enviar" type="submit" class="btn enviar text-uppercase">Ingresar</button>
 						</form>
 						<a href="/registro" class="lnk text-uppercase" >Registrarme</a>
 			        </div>

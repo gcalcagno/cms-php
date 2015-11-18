@@ -21,6 +21,18 @@
 			$password = $_POST["password_usuario"];
 			$mensaje = $UsuarioBack->login($usuario, $password);
 		}
+
+
+		if(isset($_POST['enviar']))
+        { 
+            //valida campos vacíos
+            if(
+              $_POST['admin'] == '' ||
+              $_POST['password_usuario'] == '' 
+              ) { 
+              	$errorRequired ='Por favor llene todos los campos. ';
+            } 
+        }
 	
 		?>
 
@@ -31,6 +43,10 @@
 			<?php if(isset($mensaje['error2'])){?>
 				<div class="alert alert-danger"><?php echo $mensaje['error2'] ;?></div>
 			<?php }?>
+			<?php if(isset($errorRequired)){?>
+				<div class="alert alert-danger"><?php echo $errorRequired ;?></div>
+			<?php }?>
+
             <div class="subtitulo titulo-gris"> 
                 <span class="icon glyphicon glyphicon-lock"></span>
                 <hr>
@@ -38,14 +54,14 @@
             <form role="form" class="form" action="" method="post">
 			  	<div class="form-group">
 			    	<label class="text-uppercase">Usuario</label>
-			    	<input name="admin" type="text" class="form-control" required 
+			    	<input name="admin" type="text" class="form-control"  
 			    	value="<?php if (isset($_POST['admin'])){echo $_POST['admin']; }?>">
 			  	</div>
 			  	<div class="form-group">
 			    	<label class="text-uppercase">Contraseña</label>
-			   		<input name="password_usuario" type="password" class="form-control" required >
+			   		<input name="password_usuario" type="password" class="form-control"  >
 			 	</div>
-			 	<button name="iniciar" type="submit" class="text-uppercase btn ">Ingresar</button>
+			 	<button name="enviar" type="submit" class="text-uppercase btn ">Ingresar</button>
 			</form>
         </div>
 
