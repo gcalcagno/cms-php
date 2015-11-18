@@ -1,4 +1,5 @@
 <?php 
+	error_reporting(E_ERROR | E_PARSE);
 	require($_SERVER['DOCUMENT_ROOT'].'/assets/ti.php'); 
 	require_once $_SERVER['DOCUMENT_ROOT']."/config/core.php";
 ?> 

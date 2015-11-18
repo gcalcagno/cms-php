@@ -21,7 +21,7 @@ class UsuarioFront
             //valida password
             if($row["password"] == $password){
                 $_SESSION['usuario'] = $usuario;
-                header("Location: home");  
+                echo '<script language="javascript">window.location="/home"</script>;';  
                 echo 'usuario logueado';
             }else{
                 echo "Contraseña Incorrecta";    

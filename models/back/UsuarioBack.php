@@ -44,7 +44,8 @@ class UsuarioBack
             if($row["password"] == $password){
                 $_SESSION['usuario'] = $usuario;  
                  $_SESSION['admin'] = $usuario;  
-                header("Location: admin-dashboard");  
+                 echo '<script language="javascript">window.location="/admin-dashboard"</script>;';
+
                 exit();
             }else{
                 $mensajes= array( "error1" => "Contraseña Incorrecta."  );   

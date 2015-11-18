@@ -38,7 +38,8 @@
             <form role="form" class="form" action="" method="post">
 			  	<div class="form-group">
 			    	<label class="text-uppercase">Usuario</label>
-			    	<input name="admin" type="text" class="form-control" required >
+			    	<input name="admin" type="text" class="form-control" required 
+			    	value="<?php if (isset($_POST['admin'])){echo $_POST['admin']; }?>">
 			  	</div>
 			  	<div class="form-group">
 			    	<label class="text-uppercase">Contraseña</label>

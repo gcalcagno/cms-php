@@ -1,9 +1,9 @@
 <?php 
-session_start();
  //Vaciar sesión
  $_SESSION = array();
  //Destruir Sesión
  session_destroy();
  //Redireccionar a login.php
- header("location: /home");
+ echo '<script language="javascript">window.location="/home"</script>;';
+
 ?>
