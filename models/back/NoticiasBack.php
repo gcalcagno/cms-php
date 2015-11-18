@@ -15,7 +15,7 @@ class NoticiasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        $resultado=$mysqli->query("SELECT * FROM noticia WHERE activo = '1'");
+        $resultado=$mysqli->query("SELECT * FROM noticia WHERE activo = '1' GROUP BY fecha");
 
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
