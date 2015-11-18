@@ -43,7 +43,8 @@ class UsuarioBack
             //valida password
             if($row["password"] == $password){
                 $_SESSION['usuario'] = $usuario;  
-                 $_SESSION['admin'] = $usuario;  
+                 $_SESSION['admin'] = $usuario; 
+                 $_SESSION['nombre'] = $row["nombre"];
                  echo '<script language="javascript">window.location="/admin-dashboard"</script>;';
 
                 exit();

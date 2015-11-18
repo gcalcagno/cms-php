@@ -41,6 +41,10 @@
 				$FrontController->registro();
 			break;
 
+			case "recuperar-pass":
+				$FrontController->recuperarPass();
+			break;
+
 			case "perfil":
 				$FrontController->perfil();
 			break;

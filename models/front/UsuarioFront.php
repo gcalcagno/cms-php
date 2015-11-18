@@ -21,6 +21,7 @@ class UsuarioFront
             //valida password
             if($row["password"] == $password){
                 $_SESSION['usuario'] = $usuario;
+                $_SESSION['nombre'] = $row["nombre"];
                 echo '<script language="javascript">window.location="/home"</script>;';  
                 echo 'usuario logueado';
             }else{
@@ -143,6 +144,31 @@ class UsuarioFront
         }
 
         $newusuarioCategoria->close();
+    }
+
+
+    /********************** 
+    ** Recuperar Pass *****
+    **********************/
+    public function recuperarPass($email)
+    {
+
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        //borra todas las relaciones
+        $resultado = $mysqli->query("SELECT * FROM usuarios WHERE email = '$email' ");
+
+        if (mysqli_num_rows($resultado) == 0) {
+            echo 'El email es incorrecto';
+        }else{
+            return $mensajeOk = 'Datos actualizados correctamente';
+        }
+
+        //enviar email
+        mail($email, '$título', '$mensaje', '$cabeceras');
+
+        $resultado->close();
     }
 
 

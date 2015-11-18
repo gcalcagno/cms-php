@@ -77,6 +77,7 @@
 						 	<button name="enviar" type="submit" class="btn enviar text-uppercase">Ingresar</button>
 						</form>
 						<a href="/registro" class="lnk text-uppercase" >Registrarme</a>
+						<a href="/recuperar-pass" class="lnk2 text-uppercase" >Recuperar Contraseña</a>
 			        </div>
 		        <?php
 					}

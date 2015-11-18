@@ -63,6 +63,17 @@ class FrontController
 
 
     /************************** 
+    ** Recuperar Pass *********
+    **************************/
+    function recuperarPass()
+    {
+        //Llamada a la vista
+        require 'views/front/recuperarPass.php';
+
+    }
+
+
+    /************************** 
     ** Perfil *****************
     **************************/
     function perfil()

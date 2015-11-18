@@ -29,12 +29,12 @@
      
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         
-        <?php if(isset($_SESSION['usuario'])){ ?>
+        <?php if(isset($_SESSION['nombre'])){ ?>
 
         <div class="navbar-header pull-right">
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <?php echo $_SESSION['usuario'];?> <span class="glyphicon glyphicon-cog"></span>
+              <?php echo $_SESSION['nombre'];?> <span class="glyphicon glyphicon-cog"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <li>
