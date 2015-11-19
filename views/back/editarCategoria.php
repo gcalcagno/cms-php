@@ -56,7 +56,7 @@
 			<div class="title-page">
 				<h3>
 					<i class="icon-title fa fa-flag-o red"></i><strong>Editar Categoria</strong>
-					<a href="/admin-noticia"> 
+					<a href="/admin-categoria"> 
 						<button type="button" class="text-uppercase btn btn-naranja pull-right"><i class="glyphicon glyphicon-arrow-left"></i> Volver</button>
 					</a>
 				</h3>

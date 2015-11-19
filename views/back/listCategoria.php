@@ -45,9 +45,13 @@
 								<?php if ($row['nombre'] != 'generales' && $row['nombre'] != 'Generales'){?>
 									<a href="eliminarCategoria/<?php echo $row['id']; ?>" >
 										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-remove"></span></button>
+									</a>
+									<a href="editarCategoria/<?php echo $row['id']; ?>" >
+										<button type="button" class="text-uppercase btn btn-edit pull-right"> <span class="glyphicon glyphicon-pencil"></span></button>
 									</a> 
 								<?php }else{ ?>
 									<button type="button" class="text-uppercase btn btn-edit pull-right inactivo"> <span class="glyphicon glyphicon-remove"></span></button>
+									<button type="button" class="text-uppercase btn btn-edit pull-right inactivo"> <span class="glyphicon glyphicon-pencil"></span></button>
 								<?php } ?>
 								</td>
 							</tr>
