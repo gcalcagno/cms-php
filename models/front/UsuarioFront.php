@@ -62,7 +62,7 @@ class UsuarioFront
             ('$email','$password','$nombre','$apellido','user')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
             $resultado=$mysqli->query($sql);
             //return $mensajeOk = 'Datos ingresados correctamente';
-            echo '<div class="alert alert-success">Usted se ha registrado correctamente.</div></br>';
+            echo '<div class="alert alert-success">Usted se ha registrado correctamente. <strong><a href="/home">INICIA SESIÓN AQUI</a></strong></div></br>';
             unset($_POST['nombreRegistro']);
             unset($_POST['apellidoRegistro']);
             unset($_POST['emailRegistro']);
