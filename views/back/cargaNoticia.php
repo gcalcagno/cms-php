@@ -124,9 +124,8 @@
 							$resultado = $CategoriasBack->listado();
 							while($row = $resultado->fetch_assoc()){
 						    ?>
-						    <label for="email"><?php echo $row['nombre']; ?></label>
-						    <input type="checkbox"  name="categoria[]" value="<?php echo $row['id']; ?>">
-
+						    	<label for="email"><?php echo $row['nombre']; ?></label>
+						    	<input type="checkbox"  name="categoria[]" value="<?php echo $row['id']; ?>">
 						    <?php } ?>
 						    
 						  </div>

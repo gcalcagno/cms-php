@@ -83,6 +83,10 @@
 						<a href="/recuperar-pass" class="lnk2 text-uppercase" >Recuperar Contraseña</a>
 			        </div>
 		        <?php
+					}else{
+				?>
+					<p class="subtitulo-general text-uppercase">Ingresá a tu <strong><a class="lnk" href="/perfil">PERFIL</a></strong> para seleccionar las categorias de tu preferencia.</p>
+			    <?php     
 					}
 				?>
 		        <!-- END // LOGIN -->
