@@ -74,6 +74,10 @@
 							</div>
 							
 							<button type="submit" class="btn  btn-naranja" id="btnLogA">Si</button>
+							<a href="/admin-categoria"> 
+								<button type="button" class="text-uppercase btn btn-rojo">
+								no</button>
+							</a>
 						</form>
 						<?php 
 							}else{

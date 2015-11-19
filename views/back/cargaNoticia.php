@@ -2,11 +2,12 @@
 	include 'sesionValida.php';
 ?>
 <?php
+
 		$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
-		$imagen = isset($_POST['uploadedfile']) ? $_POST['uploadedfile'] : null;
+		$imagen = isset($_FILES['uploadedfile']) ? $_FILES['uploadedfile'] : null;
 		$fecha = date("Y-m-d"); 
 
 		function validaRequerido($valor){

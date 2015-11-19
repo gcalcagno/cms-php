@@ -10,7 +10,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
-		$imagen = isset($_POST['uploadedfile']) ? $_POST['uploadedfile'] : null;
+		$imagen = isset($_FILES['uploadedfile']) ? $_FILES['uploadedfile'] : null;
 		
 		$fecha = date("Y-m-d"); 
 		
@@ -121,7 +121,7 @@
 						<div class="form-group">
 						    <label for="uploadedfile">Img Portada</label>
 						    <div class="imagen-post" style="background-image: url(/uploads/<?php echo $imagen; ?>)"></div>
-						    <input class="form-control " name="uploadedfile" type="file" />
+						    <input class="form-control " name="uploadedfile" type="file" value ="<?php echo $imagen; ?>"/>
 						</div>
 
 						<div class="form-group">
