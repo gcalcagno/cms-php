@@ -62,13 +62,18 @@ class UsuarioFront
             $sql = "INSERT INTO usuarios (email,password, nombre, apellido, tipo) VALUES 
             ('$email','$password','$nombre','$apellido','user')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
             $resultado=$mysqli->query($sql);
-            echo 'Usted se ha registrado correctamente.';
+            //return $mensajeOk = 'Datos ingresados correctamente';
+            echo '<div class="alert alert-success">Usted se ha registrado correctamente.</div></br>';
+            unset($_POST['nombreRegistro']);
+            unset($_POST['apellidoRegistro']);
+            unset($_POST['emailRegistro']);
+            unset($_POST['passwordRegistro']);
         } else { 
-            echo 'Este usuario ya ha sido registrado anteriormente.'; 
+            //return $mensajeOk = 'Datos ingresados correctamente';
+            echo '<div class="alert alert-danger">Este usuario ya ha sido registrado anteriormente.</div></br>'; 
         } 
 
-        return $resultado;
-        $resultado->close();
+       // $resultado->close();
    
     }
 

@@ -30,7 +30,7 @@
     ?> 
    
     <!--*** FORM REGISTRO ***-->
-    <div class=" bloque">
+    <div class=" bloque" >
         <div class="subtitulo titulo-naranja"> 
             <h3>Registro</h3>
         </div>
