@@ -125,6 +125,48 @@ class CategoriasBack
         $resultado->close();
     }
 
+    /********************** 
+    ** Editar Categoria **
+    **********************/
+     public function editarCategoria($id)
+    {
+
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $resultado=$mysqli->query("SELECT * FROM categoria  WHERE id = $id");
+        if(!$resultado){
+            echo 'Noticia no encontrada';
+        }
+
+        return $resultado;
+
+        $resultado->close();
+
+    }
+
+
+    /********************** 
+    ** Update de Categoria **
+    **********************/
+    public function updateCategoria($id, $nombre)
+    {
+
+        $db = new DatabaseConfig();
+        $mysqli = $db->connect();
+
+        $resultado=$mysqli->query("UPDATE categoria
+        SET nombre ='$nombre' WHERE id='$id'");
+
+        if (!$resultado) {
+            die('Invalid query: '. mysql_error());
+        }else{
+            return $mensajeOk = 'Datos actualizados correctamente';
+        }
+
+        $resultado->close();
+    }
+
 
     
 
