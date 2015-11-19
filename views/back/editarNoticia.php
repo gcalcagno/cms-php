@@ -40,11 +40,12 @@
 
 		    if (empty($errores)) {
 				$target_path =  $_SERVER['DOCUMENT_ROOT']."/uploads/";
-				$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
+				$token = rand(1, 10000000000000000);
+				$target_path = $target_path.$token; 
 				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
-					$imagen =  $_FILES['uploadedfile']['name'];
+					$imagen =  $token;
 				} 
-				$imagen =  $_FILES['uploadedfile']['name'];
+				$imagen =  $token;
 				$NoticiasBack = new NoticiasBack();
 				$mensajeOk = $NoticiasBack->updateNoticia ($_GET["id"], $titulo, $texto, $descarga, $fecha, $imagen, $categoria);
 			}

@@ -15,7 +15,7 @@ class CategoriasBack
         $db = new DatabaseConfig();
         $mysqli = $db->connect();
 
-        $resultado=$mysqli->query("SELECT * FROM categoria WHERE activo = '1' GROUP BY nombre ");
+        $resultado=$mysqli->query("SELECT * FROM categoria WHERE activo = '1' ORDER BY nombre ");
 
         if (!$resultado) {
             die('Invalid query: '. mysql_error());
