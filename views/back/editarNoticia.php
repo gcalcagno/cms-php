@@ -10,7 +10,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
-		$imagen = isset($_FILES['uploadedfile']) ? $_FILES['uploadedfile'] : null;
+		$imagen = isset($_FILES['uploadedfile']['name']) ? $_FILES['uploadedfile']['name'] : null;
 		
 		$fecha = date("Y-m-d"); 
 		
@@ -132,9 +132,9 @@
 							$resultado = $CategoriasBack->listado();
 							while($row = $resultado->fetch_assoc()){
 						    ?>
-						   		<p>
-						   			<?php echo $row['nombre']; ?>
-							    	<input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
+						    <p>
+						   		<label for="email"><?php echo $row['nombre']; ?></label>
+							    <input type="checkbox" name="categoria[]" value="<?php echo $row['id']; ?>"
 										<?php
 											$categoriaNoticia = $CategoriasBack->categoriaNoticiaCheck($row['id'], $_GET["id"]);
 											//si la categoria esta asignada a esa noticia
@@ -142,9 +142,8 @@
 												echo 'checked';
 											}
 										?>
-							    	>
-						    	</p>
-
+							    >
+						    </p>	
 						    <?php } ?>
 
 						  </div>

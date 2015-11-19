@@ -7,7 +7,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
-		$imagen = isset($_FILES['uploadedfile']) ? $_FILES['uploadedfile'] : null;
+		$imagen = isset($_FILES['uploadedfile']['name']) ? $_FILES['uploadedfile']['name'] : null;
 		$fecha = date("Y-m-d"); 
 
 		function validaRequerido($valor){
