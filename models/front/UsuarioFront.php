@@ -23,12 +23,11 @@ class UsuarioFront
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['nombre'] = $row["nombre"];
                 echo '<script language="javascript">window.location="/home"</script>;';  
-                echo 'usuario logueado';
             }else{
-                echo "Contraseña Incorrecta";    
+                echo "<div class='alert alert-danger'>Contraseña Incorrecta</div>"; 
             }
         }else{
-            echo "El nombre de usuario es incorrecto!";          
+            echo "<div class='alert alert-danger'>El nombre de usuario es incorrecto!</div>";         
         }
 
        return $resultado;

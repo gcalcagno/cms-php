@@ -34,34 +34,36 @@
 		        <!-- LOGIN -->
 				<?php
 
-			        if (isset($_POST["email"]) && !empty($_POST["email"])) {
-					    $usuario = $_POST["email"];   
-						$password = $_POST["password_usuario"];
-						$UsuarioFront = new UsuarioFront();
-						$resultado = $UsuarioFront->login($usuario, $password);
-					}
-					
-					$uri = $_SERVER['REQUEST_URI'];
-					$parte=explode ('/',$uri);
-					$i= $parte[1];
-
-					if(isset($_POST['enviar']))
-			        { 
-			            //valida campos vacíos
-			            if(
-			              $_POST['admin'] == '' ||
-			              $_POST['password_usuario'] == '' 
-			              ) { 
-			              	$errorRequired ='Por favor llene todos los campos. ';
-			            } 
-			        }
-
 					if(!isset($_SESSION['usuario']) && $i != 'registro'){
 					?>
 					<p class="subtitulo-general text-uppercase">Ingresá para ver mas categorías y filtrar según tus preferencias.</p>
 			           	
 			        <div class="login">
 			        	<h3 class="text-uppercase subtitulo-default">Login</h3>
+
+			        	<?php
+			        		if (isset($_POST["email"]) && !empty($_POST["email"])) {
+							    $usuario = $_POST["email"];   
+								$password = $_POST["password_usuario"];
+								$UsuarioFront = new UsuarioFront();
+								$resultado = $UsuarioFront->login($usuario, $password);
+							}
+							
+							$uri = $_SERVER['REQUEST_URI'];
+							$parte=explode ('/',$uri);
+							$i= $parte[1];
+
+							if(isset($_POST['enviar']))
+					        { 
+					            //valida campos vacíos
+					            if(
+					              $_POST['email'] == ''
+					              ) { 
+					              	$errorRequired ='Por favor complete el campo email. ';
+					            } 
+					        }
+
+			        ?>
 			        	<?php if(isset($errorRequired)){?>
 							<div class="alert alert-danger"><?php echo $errorRequired ;?></div>
 						<?php }?>
