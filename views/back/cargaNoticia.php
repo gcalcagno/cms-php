@@ -6,6 +6,7 @@
 		$texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 		$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 		$descarga = isset($_POST['descarga']) ? $_POST['descarga'] : null;
+		$imagen = isset($_POST['uploadedfile']) ? $_POST['uploadedfile'] : null;
 		$fecha = date("Y-m-d"); 
 
 		function validaRequerido($valor){
@@ -35,13 +36,15 @@
 		    }
 
 		    if (empty($errores)) {
-				$target_path = "uploads/";
-				$token = rand(1, 10000000000000000);
-				$target_path = $target_path.$token; 
-				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
+		    	if($imagen != null) {
+					$target_path = "uploads/";
+					$token = rand(1, 10000000000000000);
+					$target_path = $target_path.$token; 
+					if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) { 
+						$imagen =  $token;
+					}
 					$imagen =  $token;
-				}
-				$imagen =  $token;
+		    	}
 
 				$NoticiasBack = new NoticiasBack();
 				$mensajeOk = $NoticiasBack->cargaNoticia($titulo, $texto, $descarga, $fecha, $imagen, $categoria);
