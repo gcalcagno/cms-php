@@ -10,6 +10,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       <title> CMS - Giannina Calcagno</title>
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/png" href="/assets/front/images/favicon.png"/>
       
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
       <!--[if lt IE 9]>

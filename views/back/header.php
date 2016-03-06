@@ -11,6 +11,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       <title> Backend - CMS </title>
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/png" href="/assets/back/images/favicon.png"/>
       
       <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
       <!--[if lt IE 9]>
