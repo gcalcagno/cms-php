@@ -2,7 +2,8 @@
 	//validamos si se inició sesión
 	if(isset($_SESSION['admin'])) 
 	{
-		header('Location: /admin-dashboard'); 
+		//header('Location: /admin-dashboard'); 
+		echo '<script language="javascript">window.location="/admin-dashboard"</script>;'; 
 	  	exit();
 	}
 ?>

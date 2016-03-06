@@ -24,7 +24,9 @@
     
       <!-- CSS de font-awesome-4.3.0 para iconos sociales-->
       <link href="/assets/back/fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
-
+      
+      <link rel="stylesheet" href="/assets/dataTables/css/jquery.dataTables.css">
+      
       <!-- CSS -->
       <link href="/assets/back/css/estilos.css?v=05" rel="stylesheet" media="screen">
     

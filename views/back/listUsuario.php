@@ -18,7 +18,7 @@
 			<div class="panel panel-default">
 				
 				<div class="panel-body">
-					<table class="table bootstrap-datatable countries">
+					<table class="table bootstrap-datatable countries" id="tabla">
 						<thead>
 							<tr>
 								<th class="text-uppercase">Nombre</th>

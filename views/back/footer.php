@@ -18,5 +18,11 @@
 <!-- Librería jQuery requerida por los plugins de JavaScript Bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/dataTables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" >
+    $(document).ready(function() {
+        $('#tabla').dataTable();
+    } );
+</script>
 <div id="fb-root"></div>
 

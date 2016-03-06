@@ -27,7 +27,7 @@
 			<div class="panel panel-default">
 				
 				<div class="panel-body">
-					<table class="table">
+					<table class="table" id="tabla">
 						<thead>
 							<tr>
 								<th class="text-uppercase col-10 center">Fecha</th>
